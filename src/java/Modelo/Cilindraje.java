@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Cilindraje {
+
     String k_idL;
     String k_idCilindraje;
     String k_modelo;
@@ -21,7 +22,7 @@ public class Cilindraje {
         this.k_modelo = k_modelo;
         this.v_valorBG = v_valorBG;
     }
-    
+
     public String getK_idL() {
         return k_idL;
     }
@@ -53,6 +54,5 @@ public class Cilindraje {
     public void setV_valorBG(double v_valorBG) {
         this.v_valorBG = v_valorBG;
     }
-    
-    
+
 }

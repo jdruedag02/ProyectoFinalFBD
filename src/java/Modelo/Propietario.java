@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Propietario {
+
     String k_cedula;
     String n_tipoDoc;
     String n_nombre;
@@ -25,7 +26,7 @@ public class Propietario {
         this.n_ciudad = n_ciudad;
         this.n_departamento = n_departamento;
     }
-    
+
     public String getK_cedula() {
         return k_cedula;
     }
@@ -73,6 +74,5 @@ public class Propietario {
     public void setN_departamento(String n_departamento) {
         this.n_departamento = n_departamento;
     }
-    
-    
+
 }

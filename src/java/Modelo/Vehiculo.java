@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Vehiculo {
+
     String k_placa;
     int q_capacidad;
     String n_cilindraje;
@@ -33,7 +34,7 @@ public class Vehiculo {
         this.k_idCilindraje = k_idCilindraje;
         this.k_modelo = k_modelo;
     }
-    
+
     public String getK_placa() {
         return k_placa;
     }
@@ -113,6 +114,5 @@ public class Vehiculo {
     public void setK_modelo(String k_modelo) {
         this.k_modelo = k_modelo;
     }
-    
-    
+
 }

@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Linea {
+
     String k_idL;
     String n_nombreL;
     String k_idM;
@@ -43,6 +44,5 @@ public class Linea {
     public void setK_idM(String k_idM) {
         this.k_idM = k_idM;
     }
-    
-    
+
 }

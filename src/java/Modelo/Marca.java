@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Marca {
+
     String k_idM;
     String n_nombreM;
 
@@ -33,5 +34,5 @@ public class Marca {
     public void setN_nombreM(String n_nombreM) {
         this.n_nombreM = n_nombreM;
     }
-    
+
 }

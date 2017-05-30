@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Parametros {
+
     String k_añoImpuesto;
     double v_semaforizacion;
     String f_descto;
@@ -23,7 +24,7 @@ public class Parametros {
         this.f_limite = f_limite;
         this.v_descuento = v_descuento;
     }
-    
+
     public String getK_añoImpuesto() {
         return k_añoImpuesto;
     }
@@ -63,6 +64,5 @@ public class Parametros {
     public void setV_descuento(double v_descuento) {
         this.v_descuento = v_descuento;
     }
-    
-    
+
 }

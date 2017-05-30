@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Vehiculo_Propietario {
+
     String k_placa;
     String k_cedula;
     String f_compra;
@@ -19,7 +20,7 @@ public class Vehiculo_Propietario {
         this.k_cedula = k_cedula;
         this.f_compra = f_compra;
     }
-    
+
     public String getK_placa() {
         return k_placa;
     }
@@ -43,6 +44,5 @@ public class Vehiculo_Propietario {
     public void setF_compra(String f_compra) {
         this.f_compra = f_compra;
     }
-    
-    
+
 }

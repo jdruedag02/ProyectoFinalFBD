@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Pago {
+
     String k_refPago;
     String f_pago;
     double v_vlrPagado;
@@ -25,7 +26,7 @@ public class Pago {
         this.n_forPago = n_forPago;
         this.k_idLiquidacion = k_idLiquidacion;
     }
-    
+
     public String getK_refPago() {
         return k_refPago;
     }
@@ -73,6 +74,5 @@ public class Pago {
     public void setK_idLiquidacion(String k_idLiquidacion) {
         this.k_idLiquidacion = k_idLiquidacion;
     }
-    
-    
+
 }

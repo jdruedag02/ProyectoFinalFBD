@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Liquidacion {
+
     String k_idLiquidacion;
     String n_añoImpuesto;
     double v_total;
@@ -35,7 +36,7 @@ public class Liquidacion {
         this.k_cedula = k_cedula;
         this.k_añoImpuesto = k_añoImpuesto;
     }
-    
+
     public String getK_idLiquidacion() {
         return k_idLiquidacion;
     }
@@ -123,6 +124,5 @@ public class Liquidacion {
     public void setK_añoImpuesto(String k_añoImpuesto) {
         this.k_añoImpuesto = k_añoImpuesto;
     }
-    
-    
+
 }

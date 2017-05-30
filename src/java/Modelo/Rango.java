@@ -10,6 +10,7 @@ package Modelo;
  * @author DANNY
  */
 public class Rango {
+
     String k_idR;
     double v_minimo;
     double v_maximo;
@@ -23,7 +24,7 @@ public class Rango {
         this.v_tarifa = v_tarifa;
         this.k_añoParametro = k_añoParametro;
     }
-    
+
     public String getK_idR() {
         return k_idR;
     }
@@ -63,6 +64,5 @@ public class Rango {
     public void setK_añoParametro(String k_añoParametro) {
         this.k_añoParametro = k_añoParametro;
     }
-    
-    
+
 }
