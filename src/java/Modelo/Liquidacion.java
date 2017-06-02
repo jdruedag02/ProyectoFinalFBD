@@ -6,6 +6,7 @@
 package Modelo;
 
 import Control.LiquidacionDAO;
+import java.math.BigDecimal;
 
 /**
  *
@@ -13,80 +14,80 @@ import Control.LiquidacionDAO;
  */
 public class Liquidacion {
     
-    String k_idLiquidacion;
-    String n_añoImpuesto;
-    double v_total;
-    double v_pagoVoluntario;
-    double v_dstoPronto;
-    double v_semaforizacion;
-    double v_impuesto;
-    double v_baseGravable;
+    int k_idLiquidacion;
+    BigDecimal n_añoliquidacion;
+    long v_total;
+    long v_pagoVoluntario;
+    long v_dstoPronto;
+    int v_semaforizacion;
+    long v_impuesto;
+    long v_baseGravable;
     String k_placa;
-    String k_cedula;
-    String k_añoImpuesto;
+    int k_cedula;
+    BigDecimal k_añoImpuesto;
 
 
-    public String getK_idLiquidacion() {
+    public int getK_idLiquidacion() {
         return k_idLiquidacion;
     }
 
-    public void setK_idLiquidacion(String k_idLiquidacion) {
+    public void setK_idLiquidacion(int k_idLiquidacion) {
         this.k_idLiquidacion = k_idLiquidacion;
     }
 
-    public String getN_añoImpuesto() {
-        return n_añoImpuesto;
+    public BigDecimal getN_añoImpuesto() {
+        return n_añoliquidacion;
     }
 
-    public void setN_añoImpuesto(String n_añoImpuesto) {
-        this.n_añoImpuesto = n_añoImpuesto;
+    public void setN_añoLiquidacion(BigDecimal n_añoImpuesto) {
+        this.n_añoliquidacion = n_añoImpuesto;
     }
 
-    public double getV_total() {
+    public long getV_total() {
         return v_total;
     }
 
-    public void setV_total(double v_total) {
+    public void setV_total(long v_total) {
         this.v_total = v_total;
     }
 
-    public double getV_pagoVoluntario() {
+    public long getV_pagoVoluntario() {
         return v_pagoVoluntario;
     }
 
-    public void setV_pagoVoluntario(double v_pagovoluntario) {
+    public void setV_pagoVoluntario(long v_pagovoluntario) {
         this.v_pagoVoluntario = v_pagovoluntario;
     }
 
-    public double getV_dstoPronto() {
+    public long getV_dstoPronto() {
         return v_dstoPronto;
     }
 
-    public void setV_dstoPronto(double v_dstoPronto) {
+    public void setV_dstoPronto(long v_dstoPronto) {
         this.v_dstoPronto = v_dstoPronto;
     }
 
-    public double getV_semaforizacion() {
+    public int getV_semaforizacion() {
         return v_semaforizacion;
     }
 
-    public void setV_semaforizaion(double v_semaforizaion) {
+    public void setV_semaforizaion(int v_semaforizaion) {
         this.v_semaforizacion = v_semaforizaion;
     }
 
-    public double getV_impuesto() {
+    public long getV_impuesto() {
         return v_impuesto;
     }
 
-    public void setV_impuesto(double v_impuesto) {
+    public void setV_impuesto(long v_impuesto) {
         this.v_impuesto = v_impuesto;
     }
 
-    public double getV_baseGravable() {
+    public long getV_baseGravable() {
         return v_baseGravable;
     }
 
-    public void setV_baseGravable(double v_baseGravable) {
+    public void setV_baseGravable(long v_baseGravable) {
         this.v_baseGravable = v_baseGravable;
     }
 
@@ -98,19 +99,19 @@ public class Liquidacion {
         this.k_placa = k_placa;
     }
 
-    public String getK_cedula() {
+    public int getK_cedula() {
         return k_cedula;
     }
 
-    public void setK_cedula(String k_cedula) {
+    public void setK_cedula(int k_cedula) {
         this.k_cedula = k_cedula;
     }
 
-    public String getK_añoImpuesto() {
+    public BigDecimal getK_añoImpuesto() {
         return k_añoImpuesto;
     }
 
-    public void setK_añoImpuesto(String k_añoImpuesto) {
+    public void setK_añoImpuesto(BigDecimal k_añoImpuesto) {
         this.k_añoImpuesto = k_añoImpuesto;
     }
 

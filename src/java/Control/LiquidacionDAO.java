@@ -33,17 +33,17 @@ public class LiquidacionDAO {
                 + "v_basegravable, k_placa, k_cedula, k_añoimpuesto) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-        prepStmt.setString(1, li.getK_idLiquidacion()); 
-        prepStmt.setString(2, li.getN_añoImpuesto()); 
-        prepStmt.setDouble(3, li.getV_total()); 
-        prepStmt.setDouble(4, li.getV_pagoVoluntario()); 
-        prepStmt.setDouble(5, li.getV_dstoPronto());
-        prepStmt.setDouble(6, li.getV_semaforizacion());
-        prepStmt.setDouble(7, li.getV_impuesto());
-        prepStmt.setDouble(8, li.getV_baseGravable());
+        prepStmt.setInt(1, li.getK_idLiquidacion()); 
+        prepStmt.setBigDecimal(2, li.getN_añoImpuesto()); 
+        prepStmt.setLong(3, li.getV_total()); 
+        prepStmt.setLong(4, li.getV_pagoVoluntario()); 
+        prepStmt.setLong(5, li.getV_dstoPronto());
+        prepStmt.setInt(6, li.getV_semaforizacion());
+        prepStmt.setLong(7, li.getV_impuesto());
+        prepStmt.setLong(8, li.getV_baseGravable());
         prepStmt.setString(9, li.getK_placa());
-        prepStmt.setString(10, li.getK_cedula());
-        prepStmt.setString(11, li.getK_añoImpuesto());
+        prepStmt.setInt(10, li.getK_cedula());
+        prepStmt.setBigDecimal(11, li.getK_añoImpuesto());
         
         prepStmt.executeUpdate();
         prepStmt.close();

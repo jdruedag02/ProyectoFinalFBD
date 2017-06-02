@@ -43,7 +43,7 @@ public class ServiceLocator {
         try {
             // Se registra el Driver y se crea la conexion
             
-            String url = "jdbc:postgresql://localhost:5432/Liquidar";
+            String url = "jdbc:postgresql://localhost:5432/vehiculos";
             String usuario = "postgres";
             String password = "bd20151020060";
             Class.forName("org.postgresql.Driver").newInstance();
