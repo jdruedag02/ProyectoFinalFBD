@@ -26,9 +26,36 @@ public class LiquidacionDAO {
         li = new Liquidacion();
     }
 
-    /*
-    Espacio destinado para operaciones sql
-     */
+    public void incluirLiquidacion() throws CaException{
+        try {
+      
+        String strSQL = "INSERT INTO liquidacion (k_idLiquidacion, n_añoImpuesto, v_total, v_pagoVoluntario, v_dstoPronto, v_semaforizacion, v_impuesto, "
+                + "v_baseGravable, k_placa, k_cedula, k_añoImpuesto) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setString(1, li.getK_idLiquidacion()); 
+        prepStmt.setString(2, li.getN_añoImpuesto()); 
+        prepStmt.setDouble(3, li.getV_total()); 
+        prepStmt.setDouble(4, li.getV_pagoVoluntario()); 
+        prepStmt.setDouble(5, li.getV_dstoPronto());
+        prepStmt.setDouble(6, li.getV_semaforizacion());
+        prepStmt.setDouble(7, li.getV_impuesto());
+        prepStmt.setDouble(8, li.getV_baseGravable());
+        prepStmt.setString(9, li.getK_placa());
+        prepStmt.setString(10, li.getK_cedula());
+        prepStmt.setString(11, li.getK_añoImpuesto());
+        
+        prepStmt.executeUpdate();
+        prepStmt.close();
+        ServiceLocator.getInstance().commit();
+      } catch (SQLException e) {
+           throw new CaException( "LiquidacionDAO", "No pudo crear la liquidacion"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+        
+    }
+    
     public Liquidacion getLi() {
         return li;
     }

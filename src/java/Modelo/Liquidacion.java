@@ -17,9 +17,9 @@ public class Liquidacion {
     String k_idLiquidacion;
     String n_añoImpuesto;
     double v_total;
-    double v_pagovoluntario;
+    double v_pagoVoluntario;
     double v_dstoPronto;
-    double v_semaforizaion;
+    double v_semaforizacion;
     double v_impuesto;
     double v_baseGravable;
     String k_placa;
@@ -54,12 +54,12 @@ public class Liquidacion {
         this.v_total = v_total;
     }
 
-    public double getV_pagovoluntario() {
-        return v_pagovoluntario;
+    public double getV_pagoVoluntario() {
+        return v_pagoVoluntario;
     }
 
-    public void setV_pagovoluntario(double v_pagovoluntario) {
-        this.v_pagovoluntario = v_pagovoluntario;
+    public void setV_pagoVoluntario(double v_pagovoluntario) {
+        this.v_pagoVoluntario = v_pagovoluntario;
     }
 
     public double getV_dstoPronto() {
@@ -70,12 +70,12 @@ public class Liquidacion {
         this.v_dstoPronto = v_dstoPronto;
     }
 
-    public double getV_semaforizaion() {
-        return v_semaforizaion;
+    public double getV_semaforizacion() {
+        return v_semaforizacion;
     }
 
     public void setV_semaforizaion(double v_semaforizaion) {
-        this.v_semaforizaion = v_semaforizaion;
+        this.v_semaforizacion = v_semaforizaion;
     }
 
     public double getV_impuesto() {
