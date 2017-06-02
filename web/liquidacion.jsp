@@ -6,6 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    String Placa = request.getParameter("placa");
+    String Cedula = request.getParameter("cedula");    
+%>
+
 <html lang="es">
   <head>
     <!-- Required meta tags -->
@@ -41,12 +47,12 @@
         <div class="row flex-items-xs-between flex-items-xs-middle fila-predeterminada">
           <div class="col-xs-12 col-md-3">
             <div class="input-group row">
-              <input id="placa" type="text" class ="form-control" placeholder="Placa del vehiculo" readonly>
+              <input id="placa" type="text" class ="form-control" placeholder="<%=Placa%>" readonly>
             </div>
           </div>
           <div class="col-xs-12 col-md-3">
             <div class="input-group row">
-              <input id="Identificacion del contribuyente" type="text" class ="form-control" placeholder="Identificacion del contribuyente" readonly>
+              <input id="Identificacion del contribuyente" type="text" class ="form-control" placeholder="<%=Cedula%>" readonly>
             </div>          
           </div>
           <div class="col-xs-12 col-md-3">
