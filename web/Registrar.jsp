@@ -4,8 +4,11 @@
     Author     : JULIAN
 --%>
 
+<%@page import="java.math.BigDecimal"%>
+<%@page import="Control.*"%>
 <%@page import="Modelo.Propietario"%>
 <%@page import="Control.PropietarioDAO" %>
+<%@page import="Modelo.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -67,7 +70,25 @@
                 p.setN_direccion(Direccion);
                 p.setN_departamento(Departamento);
                 propietario.incluirPropietario();
-               out.println("Municipio ["+ p.getN_nombre()+ "] Incluido exitosamente");
+                out.println("Propietario ["+ p.getN_nombre()+ "] Incluido exitosamente");
+               
+//                LiquidacionDAO ld = new LiquidacionDAO();
+//                Liquidacion l = ld.getLi();
+//            
+//                l.setN_añoLiquidacion(BigDecimal.valueOf(2017));
+//                l.setK_idLiquidacion(1);
+//                l.setK_cedula(1);
+//                l.setV_total(1256665474);
+//                l.setV_pagoVoluntario(224);
+//                l.setV_baseGravable(895460023);
+//                l.setV_semaforizaion(49000);
+//                l.setV_dstoPronto(0);
+//                l.setV_impuesto(1250000);
+//                l.setK_placa("htu458");
+//                l.setK_añoImpuesto(BigDecimal.valueOf(2017));
+//                
+//                ld.incluirLiquidacion();
+//                out.println("liquidacion agregada");
             }
             catch(NumberFormatException e ){
                 out.println("Error --> " + e.getMessage());
