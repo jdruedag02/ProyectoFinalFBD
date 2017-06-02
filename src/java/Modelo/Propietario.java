@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Control.CaException;
+import util.CaException;
 import Control.PropietarioDAO;
 
 /**

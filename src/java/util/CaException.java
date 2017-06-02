@@ -1,4 +1,4 @@
-package Control;
+package util;
 
 public class CaException extends Exception {
 

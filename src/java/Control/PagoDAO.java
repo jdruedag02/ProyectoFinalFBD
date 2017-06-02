@@ -10,8 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Modelo.Linea;
-import Control.CaException;
-import Control.ServiceLocator;
+import util.CaException;
+import util.ServiceLocator;
 import Modelo.Pago;
 
 /**

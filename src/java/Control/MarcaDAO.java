@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import Control.CaException;
-import Control.ServiceLocator;
+import util.CaException;
+import util.ServiceLocator;
 import Modelo.Marca;
 
 /**

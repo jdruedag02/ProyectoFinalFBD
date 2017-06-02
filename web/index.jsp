@@ -77,7 +77,7 @@
                         <div class="row flex-items-xs-center">
                             <div class="col-xs-12 col-md-3 columna">
                                 <div class="btn-grupo">
-                                    <a class="btn btn-primary" role="button" href="liquidacion.html">Generar liquidacion</a>
+                                    <a class="btn btn-primary" role="button" href="liquidacion.jsp">Generar liquidacion</a>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-3 columna">
