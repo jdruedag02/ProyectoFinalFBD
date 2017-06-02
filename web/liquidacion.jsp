@@ -248,7 +248,7 @@
        <form>
          <div class="form-group row fila-form">
            <div class="col-xs-12">
-             <legend>?Desea incluir el aporte voluntario (10%)?</legend>
+             <legend>¿Desea incluir el aporte voluntario (10%)?</legend>
               <div class="form-check form-check-inline row">
                 <label class="form-check-label">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions">Si
@@ -260,7 +260,7 @@
            </div>
          </div>
          <div class="form-group row fila-form">
-            <label class="col-form-label col-xs-12 col-md-6" for="avaluo">Aval?o comercial (Base Gravable)</label>
+            <label class="col-form-label col-xs-12 col-md-6" for="avaluo">Avalúo comercial (Base Gravable)</label>
             <input class="form-control entradas col-xs-12 col-md-6" type="text" readonly id="avaluo">
          </div>
          <div class="form-group row fila-form">
@@ -297,18 +297,18 @@
         <div class="row flex-items-xs-center flex-items-xs-middle text-xs-center text-md-justify">
           <div class="col-xs-12 col-md-4 columna seccion-footer">
             <h4>Contactenos</h4>
-            <p>Tel?fono: (571) 338 5000 - L?nea 195 <br> 
-                Fax: (571) 338 5800 Extensi?n: 5200 <br>
-                Correo electr?nico: contactenos@shd.gov.co</p>
+            <p>Teléfono: (571) 338 5000 - Línea 195 <br> 
+                Fax: (571) 338 5800 Extensión: 5200 <br>
+                Correo electrónico: contactenos@shd.gov.co</p>
           </div>
           <div class="col-xs-12 col-md-4 columna seccion-footer">
             <img src="img/firma_logo.png" class="img-fluid">
           </div>
           <div class="col-xs-12 col-md-4 columna seccion-footer">
             <h4>Encuentrenos</h4>
-            <p>Sede Administrativa: Carrera 30 N? 25-90 - C?digo Postal 111311 <br> 
-              Direcci?n Distrital de Impuestos de Bogot?: Avenida Calle 17 N? 65B-95 - C?digo Postal 111611.<br>
-              Bogot? - Distrito Capital, Colombia. </p>
+            <p>Sede Administrativa: Carrera 30 N° 25-90 - Código Postal 111311 <br> 
+              Dirección Distrital de Impuestos de Bogotá: Avenida Calle 17 N° 65B-95 - Código Postal 111611.<br>
+              Bogotá - Distrito Capital, Colombia. </p>
           </div>
         </div>
       </div>
