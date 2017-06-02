@@ -5,20 +5,21 @@
  */
 package Modelo;
 
+import Control.Vehiculo_PropietarioDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Vehiculo_Propietario {
-
+    
+    private static Vehiculo_PropietarioDAO vehiculo_propietarioDAO;
     String k_placa;
     String k_cedula;
     String f_compra;
 
-    public Vehiculo_Propietario(String k_placa, String k_cedula, String f_compra) {
-        this.k_placa = k_placa;
-        this.k_cedula = k_cedula;
-        this.f_compra = f_compra;
+    public Vehiculo_Propietario() {
+        vehiculo_propietarioDAO = new Vehiculo_PropietarioDAO();
     }
 
     public String getK_placa() {
@@ -44,5 +45,8 @@ public class Vehiculo_Propietario {
     public void setF_compra(String f_compra) {
         this.f_compra = f_compra;
     }
-
+    
+    public Vehiculo_Propietario getVehiculo_Propietario(){
+        return vehiculo_propietarioDAO.getVp();
+    }
 }

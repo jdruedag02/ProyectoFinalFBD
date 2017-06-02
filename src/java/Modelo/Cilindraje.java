@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Control.CilindrajeDAO;
+
 /**
  *
  * @author DANNY
@@ -15,12 +17,10 @@ public class Cilindraje {
     String k_idCilindraje;
     String k_modelo;
     double v_valorBG;
+    CilindrajeDAO cilindrajeDAO;
 
-    public Cilindraje(String k_idL, String k_idCilindraje, String k_modelo, double v_valorBG) {
-        this.k_idL = k_idL;
-        this.k_idCilindraje = k_idCilindraje;
-        this.k_modelo = k_modelo;
-        this.v_valorBG = v_valorBG;
+    public Cilindraje() {
+        cilindrajeDAO= new CilindrajeDAO();
     }
 
     public String getK_idL() {
@@ -54,5 +54,8 @@ public class Cilindraje {
     public void setV_valorBG(double v_valorBG) {
         this.v_valorBG = v_valorBG;
     }
-
+    
+    public Cilindraje getCilindraje() {
+        return CilindrajeDAO.getC();
+    }
 }

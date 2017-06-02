@@ -5,12 +5,15 @@
  */
 package Modelo;
 
+import Control.PagoDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Pago {
-
+    
+    private static PagoDAO pagoDAO;
     String k_refPago;
     String f_pago;
     double v_vlrPagado;
@@ -18,13 +21,8 @@ public class Pago {
     String n_forPago;
     String k_idLiquidacion;
 
-    public Pago(String k_refPago, String f_pago, double v_vlrPagado, String n_banco, String n_forPago, String k_idLiquidacion) {
-        this.k_refPago = k_refPago;
-        this.f_pago = f_pago;
-        this.v_vlrPagado = v_vlrPagado;
-        this.n_banco = n_banco;
-        this.n_forPago = n_forPago;
-        this.k_idLiquidacion = k_idLiquidacion;
+    public Pago() {
+        pagoDAO = new PagoDAO();
     }
 
     public String getK_refPago() {
@@ -73,6 +71,10 @@ public class Pago {
 
     public void setK_idLiquidacion(String k_idLiquidacion) {
         this.k_idLiquidacion = k_idLiquidacion;
+    }
+    
+    public Pago getPago(){
+        return pagoDAO.getP();
     }
 
 }

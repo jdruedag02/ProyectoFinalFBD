@@ -5,24 +5,23 @@
  */
 package Modelo;
 
+import Control.RangoDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Rango {
-
+    
+    private static RangoDAO rangoDAO;
     String k_idR;
     double v_minimo;
     double v_maximo;
     double v_tarifa;
     String k_añoParametro;
 
-    public Rango(String k_idR, double v_minimo, double v_maximo, double v_tarifa, String k_añoParametro) {
-        this.k_idR = k_idR;
-        this.v_minimo = v_minimo;
-        this.v_maximo = v_maximo;
-        this.v_tarifa = v_tarifa;
-        this.k_añoParametro = k_añoParametro;
+    public Rango() {
+        rangoDAO = new RangoDAO();
     }
 
     public String getK_idR() {
@@ -63,6 +62,10 @@ public class Rango {
 
     public void setK_añoParametro(String k_añoParametro) {
         this.k_añoParametro = k_añoParametro;
+    }
+    
+    public Rango getRango(){
+        return rangoDAO.getR();
     }
 
 }

@@ -20,16 +20,33 @@ import Modelo.Propietario;
  */
 public class PropietarioDAO {
 
-    private Propietario pr;
+    private static Propietario pr;
 
-    public PropietarioDAO(Propietario pr) {
-        this.pr = pr;
+    public PropietarioDAO(){
+        pr = new Propietario();
     }
-
-    /*
-    Espacio destinado para operaciones sql
-     */
-    public Propietario getPr() {
+    
+    public void incluirPropietario() throws CaException {
+      try {
+      
+        String strSQL = "INSERT INTO propietario (k_cedula, n_nombre, n_direccion, n_ciudad, n_departamento) VALUES(?,?,?,?,?)";
+        Connection conexion = ServiceLocator.getInstance().tomarConexion();
+        PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+        prepStmt.setString(1,pr.getK_cedula()); 
+        prepStmt.setString(2, pr.getN_nombre() ); 
+        prepStmt.setString(3, pr.getN_direccion()); 
+        prepStmt.setString(4, pr.getN_departamento()); 
+        prepStmt.executeUpdate();
+        prepStmt.close();
+        ServiceLocator.getInstance().commit();
+      } catch (SQLException e) {
+           throw new CaException( "PropietarioDAO", "No pudo crear el municipio"+ e.getMessage());
+      }  finally {
+         ServiceLocator.getInstance().liberarConexion();
+      }
+      
+    }
+    public static Propietario getPr() {
         return pr;
     }
 
@@ -37,4 +54,5 @@ public class PropietarioDAO {
         this.pr = pr;
     }
 
+    
 }

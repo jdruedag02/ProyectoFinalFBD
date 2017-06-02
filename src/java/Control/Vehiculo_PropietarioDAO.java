@@ -22,8 +22,8 @@ public class Vehiculo_PropietarioDAO {
 
     private Vehiculo_Propietario vp;
 
-    public Vehiculo_PropietarioDAO(Vehiculo_Propietario vp) {
-        this.vp = vp;
+    public Vehiculo_PropietarioDAO() {
+        vp = new Vehiculo_Propietario();
     }
 
     /*

@@ -5,12 +5,15 @@
  */
 package Modelo;
 
+import Control.LiquidacionDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Liquidacion {
-
+    
+    private LiquidacionDAO liquidacionDAO;
     String k_idLiquidacion;
     String n_añoImpuesto;
     double v_total;
@@ -23,18 +26,8 @@ public class Liquidacion {
     String k_cedula;
     String k_añoImpuesto;
 
-    public Liquidacion(String k_idLiquidacion, String n_añoImpuesto, double v_total, double v_pagovoluntario, double v_dstoPronto, double v_semaforizaion, double v_impuesto, double v_baseGravable, String k_placa, String k_cedula, String k_añoImpuesto) {
-        this.k_idLiquidacion = k_idLiquidacion;
-        this.n_añoImpuesto = n_añoImpuesto;
-        this.v_total = v_total;
-        this.v_pagovoluntario = v_pagovoluntario;
-        this.v_dstoPronto = v_dstoPronto;
-        this.v_semaforizaion = v_semaforizaion;
-        this.v_impuesto = v_impuesto;
-        this.v_baseGravable = v_baseGravable;
-        this.k_placa = k_placa;
-        this.k_cedula = k_cedula;
-        this.k_añoImpuesto = k_añoImpuesto;
+    public Liquidacion() {
+       liquidacionDAO = new LiquidacionDAO();
     }
 
     public String getK_idLiquidacion() {
@@ -123,6 +116,10 @@ public class Liquidacion {
 
     public void setK_añoImpuesto(String k_añoImpuesto) {
         this.k_añoImpuesto = k_añoImpuesto;
+    }
+    
+    public Liquidacion getLiquidacion(){
+        return liquidacionDAO.getLi();
     }
 
 }

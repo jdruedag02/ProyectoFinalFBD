@@ -22,8 +22,8 @@ public class PagoDAO {
 
     private Pago p;
 
-    public PagoDAO(Pago pago) {
-        p = pago;
+    public PagoDAO() {
+        p = new Pago();
     }
 
     /*

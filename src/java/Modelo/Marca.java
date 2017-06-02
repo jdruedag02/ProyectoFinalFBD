@@ -5,18 +5,20 @@
  */
 package Modelo;
 
+import Control.MarcaDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Marca {
-
+    
+    private static MarcaDAO marcaDAO;
     String k_idM;
     String n_nombreM;
 
-    public Marca(String k_idM, String n_nombreM) {
-        this.k_idM = k_idM;
-        this.n_nombreM = n_nombreM;
+    public Marca() {
+        marcaDAO = new MarcaDAO();
     }
 
     public String getK_idM() {
@@ -33,6 +35,10 @@ public class Marca {
 
     public void setN_nombreM(String n_nombreM) {
         this.n_nombreM = n_nombreM;
+    }
+    
+    public Marca getMarca(){
+        return marcaDAO.getM();
     }
 
 }

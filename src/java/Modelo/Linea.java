@@ -5,20 +5,21 @@
  */
 package Modelo;
 
+import Control.LineaDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Linea {
-
+    
+    private LineaDAO lineaDAO;
     String k_idL;
     String n_nombreL;
     String k_idM;
 
-    public Linea(String k_idL, String n_nombreL, String k_idM) {
-        this.k_idL = k_idL;
-        this.n_nombreL = n_nombreL;
-        this.k_idM = k_idM;
+    public Linea() {
+        lineaDAO = new LineaDAO();
     }
 
     public String getK_idL() {
@@ -44,5 +45,8 @@ public class Linea {
     public void setK_idM(String k_idM) {
         this.k_idM = k_idM;
     }
-
+    
+    public Linea getLinea(){
+        return lineaDAO.getL();
+    }
 }

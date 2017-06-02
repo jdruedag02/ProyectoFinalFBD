@@ -5,24 +5,23 @@
  */
 package Modelo;
 
+import Control.ParametrosDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Parametros {
-
+    
+    private static ParametrosDAO parametrosDAO;
     String k_añoImpuesto;
     double v_semaforizacion;
     String f_descto;
     String f_limite;
     double v_descuento;
 
-    public Parametros(String k_añoImpuesto, double v_semaforizacion, String f_descto, String f_limite, double v_descuento) {
-        this.k_añoImpuesto = k_añoImpuesto;
-        this.v_semaforizacion = v_semaforizacion;
-        this.f_descto = f_descto;
-        this.f_limite = f_limite;
-        this.v_descuento = v_descuento;
+    public Parametros() {
+        parametrosDAO = new ParametrosDAO();
     }
 
     public String getK_añoImpuesto() {
@@ -63,6 +62,10 @@ public class Parametros {
 
     public void setV_descuento(double v_descuento) {
         this.v_descuento = v_descuento;
+    }
+    
+    public Parametros getParametros(){
+        return parametrosDAO.getP();
     }
 
 }

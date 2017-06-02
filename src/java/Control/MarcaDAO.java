@@ -21,8 +21,8 @@ public class MarcaDAO {
 
     private Marca m;
 
-    public MarcaDAO(Marca marca) {
-        m = marca;
+    public MarcaDAO() {
+        m = new Marca();
     }
 
     /*

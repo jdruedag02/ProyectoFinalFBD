@@ -22,8 +22,8 @@ public class ParametrosDAO {
 
     private Parametros p;
 
-    public ParametrosDAO(Parametros p) {
-        this.p = p;
+    public ParametrosDAO() {
+        p = new Parametros();
     }
 
     /*

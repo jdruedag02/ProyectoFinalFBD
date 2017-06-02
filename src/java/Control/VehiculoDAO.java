@@ -22,8 +22,8 @@ public class VehiculoDAO {
 
     private Vehiculo v;
 
-    public VehiculoDAO(Vehiculo v) {
-        this.v = v;
+    public VehiculoDAO() {
+        v = new Vehiculo();
     }
 
     /*

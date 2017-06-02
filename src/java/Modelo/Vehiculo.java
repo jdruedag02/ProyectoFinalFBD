@@ -5,12 +5,15 @@
  */
 package Modelo;
 
+import Control.VehiculoDAO;
+
 /**
  *
  * @author DANNY
  */
 public class Vehiculo {
-
+    
+    private static VehiculoDAO vehiculoDAO;
     String k_placa;
     int q_capacidad;
     String n_cilindraje;
@@ -22,17 +25,8 @@ public class Vehiculo {
     String k_idCilindraje;
     String k_modelo;
 
-    public Vehiculo(String k_placa, int q_capacidad, String n_cilindraje, String n_tipo, String n_modelo, String n_uso, String k_idM, String k_idL, String k_idCilindraje, String k_modelo) {
-        this.k_placa = k_placa;
-        this.q_capacidad = q_capacidad;
-        this.n_cilindraje = n_cilindraje;
-        this.n_tipo = n_tipo;
-        this.n_modelo = n_modelo;
-        this.n_uso = n_uso;
-        this.k_idM = k_idM;
-        this.k_idL = k_idL;
-        this.k_idCilindraje = k_idCilindraje;
-        this.k_modelo = k_modelo;
+    public Vehiculo() {
+        vehiculoDAO = new VehiculoDAO();
     }
 
     public String getK_placa() {
@@ -113,6 +107,10 @@ public class Vehiculo {
 
     public void setK_modelo(String k_modelo) {
         this.k_modelo = k_modelo;
+    }
+    
+    public Vehiculo getVehiculo(){
+        return vehiculoDAO.getV();
     }
 
 }

@@ -20,10 +20,10 @@ import Control.ServiceLocator;
  */
 public class LiquidacionDAO {
 
-    private Liquidacion li;
+    private static Liquidacion li;
 
-    public LiquidacionDAO(Liquidacion l) {
-        li = l;
+    public LiquidacionDAO() {
+        li = new Liquidacion();
     }
 
     /*

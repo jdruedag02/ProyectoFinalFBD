@@ -22,8 +22,8 @@ public class RangoDAO {
 
     private Rango r;
 
-    public RangoDAO(Rango r) {
-        this.r = r;
+    public RangoDAO() {
+        r = new Rango();
     }
 
     /*

@@ -19,16 +19,16 @@ import Control.ServiceLocator;
  */
 public class LineaDAO {
 
-    private Linea l;
+    private static Linea l;
 
-    public LineaDAO(Linea linea) {
-        l = linea;
+    public LineaDAO() {
+        l = new Linea();
     }
 
     /*
     Espacio destinado para operaciones sql
      */
-    public Linea getL() {
+    public static Linea getL() {
         return l;
     }
 

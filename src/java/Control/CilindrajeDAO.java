@@ -14,17 +14,17 @@ import Control.ServiceLocator;
  * @author DANNY
  */
 public class CilindrajeDAO {
-    private Cilindraje c;
+    private static Cilindraje c;
 
-    public CilindrajeDAO(Cilindraje cilindraje) {
-        c = cilindraje;
+    public CilindrajeDAO() {
+        c = new Cilindraje();
     }
 
     /*
     Espacio destinado para operaciones sql
     */
     
-    public Cilindraje getC() {
+    public static Cilindraje getC() {
         return c;
     }
 
