@@ -13,13 +13,13 @@ import Control.LineaDAO;
  */
 public class Linea {
     
-    private LineaDAO lineaDAO;
+    
     String k_idL;
     String n_nombreL;
     String k_idM;
 
     public Linea() {
-        lineaDAO = new LineaDAO();
+        
     }
 
     public String getK_idL() {
@@ -46,7 +46,5 @@ public class Linea {
         this.k_idM = k_idM;
     }
     
-    public Linea getLinea(){
-        return lineaDAO.getL();
-    }
+
 }

@@ -13,7 +13,6 @@ import Control.LiquidacionDAO;
  */
 public class Liquidacion {
     
-    private LiquidacionDAO liquidacionDAO;
     String k_idLiquidacion;
     String n_añoImpuesto;
     double v_total;
@@ -26,9 +25,6 @@ public class Liquidacion {
     String k_cedula;
     String k_añoImpuesto;
 
-    public Liquidacion() {
-       liquidacionDAO = new LiquidacionDAO();
-    }
 
     public String getK_idLiquidacion() {
         return k_idLiquidacion;
@@ -116,10 +112,6 @@ public class Liquidacion {
 
     public void setK_añoImpuesto(String k_añoImpuesto) {
         this.k_añoImpuesto = k_añoImpuesto;
-    }
-    
-    public Liquidacion getLiquidacion(){
-        return liquidacionDAO.getLi();
     }
 
 }

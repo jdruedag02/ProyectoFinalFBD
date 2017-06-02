@@ -29,18 +29,20 @@ public class PropietarioDAO {
     public void incluirPropietario() throws CaException {
       try {
       
-        String strSQL = "INSERT INTO propietario (k_cedula, n_nombre, n_direccion, n_ciudad, n_departamento) VALUES(?,?,?,?,?)";
+        String strSQL = "INSERT INTO propietario (k_idcedula, n_tipodoc, n_nombre, n_direccion, n_ciudad, n_departamento) VALUES(?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-        prepStmt.setString(1,pr.getK_cedula()); 
-        prepStmt.setString(2, pr.getN_nombre() ); 
-        prepStmt.setString(3, pr.getN_direccion()); 
-        prepStmt.setString(4, pr.getN_departamento()); 
+        prepStmt.setInt(1, pr.getK_cedula());
+        prepStmt.setString(2, pr.getN_tipoDoc());
+        prepStmt.setString(3, pr.getN_nombre() ); 
+        prepStmt.setString(4, pr.getN_direccion());
+        prepStmt.setString(5, pr.getN_ciudad());
+        prepStmt.setString(6, pr.getN_departamento()); 
         prepStmt.executeUpdate();
         prepStmt.close();
         ServiceLocator.getInstance().commit();
       } catch (SQLException e) {
-           throw new CaException( "PropietarioDAO", "No pudo crear el municipio"+ e.getMessage());
+           throw new CaException( "PropietarioDAO", "No pudo crear el propietario "+ e.getMessage()+"--");
       }  finally {
          ServiceLocator.getInstance().liberarConexion();
       }

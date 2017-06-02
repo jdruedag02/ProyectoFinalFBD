@@ -13,7 +13,7 @@ import Control.PagoDAO;
  */
 public class Pago {
     
-    private static PagoDAO pagoDAO;
+    
     String k_refPago;
     String f_pago;
     double v_vlrPagado;
@@ -22,7 +22,7 @@ public class Pago {
     String k_idLiquidacion;
 
     public Pago() {
-        pagoDAO = new PagoDAO();
+        
     }
 
     public String getK_refPago() {
@@ -72,9 +72,4 @@ public class Pago {
     public void setK_idLiquidacion(String k_idLiquidacion) {
         this.k_idLiquidacion = k_idLiquidacion;
     }
-    
-    public Pago getPago(){
-        return pagoDAO.getP();
-    }
-
 }

@@ -29,7 +29,7 @@ public class PagoDAO {
     public void incluirPago() throws CaException {
       try {
       
-        String strSQL = "INSERT INTO pago (k_refPago, f_pago, v_vlrPagado, n_banco, n_forPago, k_idLiquidacion) VALUES(?,?,?,?,?,?)";
+        String strSQL = "INSERT INTO pago (k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_idLiquidacion) VALUES(?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setString(1,p.getK_refPago()); 

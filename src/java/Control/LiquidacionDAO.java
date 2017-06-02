@@ -29,8 +29,8 @@ public class LiquidacionDAO {
     public void incluirLiquidacion() throws CaException{
         try {
       
-        String strSQL = "INSERT INTO liquidacion (k_idLiquidacion, n_añoImpuesto, v_total, v_pagoVoluntario, v_dstoPronto, v_semaforizacion, v_impuesto, "
-                + "v_baseGravable, k_placa, k_cedula, k_añoImpuesto) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String strSQL = "INSERT INTO liquidacion (k_idliquidacion, n_añoliquidacion, v_totalpago, v_pagovoluntario, v_descprontopago, v_semaforizacion, v_impuesto, "
+                + "v_basegravable, k_placa, k_cedula, k_añoimpuesto) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setString(1, li.getK_idLiquidacion()); 

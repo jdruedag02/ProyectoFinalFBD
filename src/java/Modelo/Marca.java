@@ -13,12 +13,12 @@ import Control.MarcaDAO;
  */
 public class Marca {
     
-    private static MarcaDAO marcaDAO;
+    
     String k_idM;
     String n_nombreM;
 
     public Marca() {
-        marcaDAO = new MarcaDAO();
+        
     }
 
     public String getK_idM() {
@@ -37,8 +37,6 @@ public class Marca {
         this.n_nombreM = n_nombreM;
     }
     
-    public Marca getMarca(){
-        return marcaDAO.getM();
-    }
+
 
 }

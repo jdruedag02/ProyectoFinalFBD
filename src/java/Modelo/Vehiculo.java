@@ -13,7 +13,7 @@ import Control.VehiculoDAO;
  */
 public class Vehiculo {
     
-    private static VehiculoDAO vehiculoDAO;
+    
     String k_placa;
     int q_capacidad;
     String n_cilindraje;
@@ -26,7 +26,7 @@ public class Vehiculo {
     String k_modelo;
 
     public Vehiculo() {
-        vehiculoDAO = new VehiculoDAO();
+        
     }
 
     public String getK_placa() {
@@ -109,8 +109,5 @@ public class Vehiculo {
         this.k_modelo = k_modelo;
     }
     
-    public Vehiculo getVehiculo(){
-        return vehiculoDAO.getV();
-    }
 
 }

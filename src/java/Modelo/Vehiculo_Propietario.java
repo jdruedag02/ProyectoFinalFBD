@@ -13,13 +13,13 @@ import Control.Vehiculo_PropietarioDAO;
  */
 public class Vehiculo_Propietario {
     
-    private static Vehiculo_PropietarioDAO vehiculo_propietarioDAO;
+    
     String k_placa;
     String k_cedula;
     String f_compra;
 
     public Vehiculo_Propietario() {
-        vehiculo_propietarioDAO = new Vehiculo_PropietarioDAO();
+        
     }
 
     public String getK_placa() {
@@ -46,7 +46,4 @@ public class Vehiculo_Propietario {
         this.f_compra = f_compra;
     }
     
-    public Vehiculo_Propietario getVehiculo_Propietario(){
-        return vehiculo_propietarioDAO.getVp();
-    }
 }

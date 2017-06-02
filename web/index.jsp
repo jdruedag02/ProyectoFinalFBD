@@ -74,29 +74,30 @@
                                 </select>
                             </div>
                             <input type="submit" value="Generar liquidacion">
-                            </form>
+                            <a href="Registrar.jsp"> registrar</a>
+                        </form>
                         <!--<div class="row flex-items-xs-center">
                             <div class="col-xs-12 col-md-3 columna">
                                 <div class="btn-grupo">
                                     <a class="btn btn-primary" type="submit" role="button" href="../src/java/util/Liquidacion.java">Generar liquidacion</a>
                                 </div>
                             </div>-->
-                            <div class="col-xs-12 col-md-3 columna">
-                                <div class="btn-grupo">
-                                    <button class="btn btn-primary">Consultar pagos</button>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-md-3 columna">
-                                <div class="btn-grupo">
-                                    <button class="btn btn-primary">Pagar</button>
-                                </div>
+                        <div class="col-xs-12 col-md-3 columna">
+                            <div class="btn-grupo">
+                                <button class="btn btn-primary" >Consultar pagos</button>
                             </div>
                         </div>
-                            
-                    </div>  
-                </div>
+                        <div class="col-xs-12 col-md-3 columna">
+                            <div class="btn-grupo">
+                                <button class="btn btn-primary">Pagar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>  
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- footer -->
         <footer id="footer-container">

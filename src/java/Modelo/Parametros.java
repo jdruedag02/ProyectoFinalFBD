@@ -13,7 +13,7 @@ import Control.ParametrosDAO;
  */
 public class Parametros {
     
-    private static ParametrosDAO parametrosDAO;
+    
     String k_añoImpuesto;
     double v_semaforizacion;
     String f_descto;
@@ -21,7 +21,7 @@ public class Parametros {
     double v_descuento;
 
     public Parametros() {
-        parametrosDAO = new ParametrosDAO();
+        
     }
 
     public String getK_añoImpuesto() {
@@ -64,8 +64,5 @@ public class Parametros {
         this.v_descuento = v_descuento;
     }
     
-    public Parametros getParametros(){
-        return parametrosDAO.getP();
-    }
 
 }

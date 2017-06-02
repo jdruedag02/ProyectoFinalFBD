@@ -13,7 +13,7 @@ import Control.RangoDAO;
  */
 public class Rango {
     
-    private static RangoDAO rangoDAO;
+    
     String k_idR;
     double v_minimo;
     double v_maximo;
@@ -21,7 +21,7 @@ public class Rango {
     String k_añoParametro;
 
     public Rango() {
-        rangoDAO = new RangoDAO();
+        
     }
 
     public String getK_idR() {
@@ -64,8 +64,4 @@ public class Rango {
         this.k_añoParametro = k_añoParametro;
     }
     
-    public Rango getRango(){
-        return rangoDAO.getR();
-    }
-
 }

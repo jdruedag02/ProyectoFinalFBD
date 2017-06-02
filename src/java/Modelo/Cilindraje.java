@@ -17,10 +17,10 @@ public class Cilindraje {
     String k_idCilindraje;
     String k_modelo;
     double v_valorBG;
-    CilindrajeDAO cilindrajeDAO;
+    
 
     public Cilindraje() {
-        cilindrajeDAO= new CilindrajeDAO();
+        
     }
 
     public String getK_idL() {
@@ -55,7 +55,4 @@ public class Cilindraje {
         this.v_valorBG = v_valorBG;
     }
     
-    public Cilindraje getCilindraje() {
-        return CilindrajeDAO.getC();
-    }
 }

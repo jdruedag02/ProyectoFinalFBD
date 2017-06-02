@@ -5,10 +5,11 @@
 --%>
 
 <%@page import="Modelo.Propietario"%>
+<%@page import="Control.PropietarioDAO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    Propietario propietario = new Propietario();
+    PropietarioDAO propietario = new PropietarioDAO();
 %>
 <html>
     <head>
@@ -22,6 +23,10 @@
                 <tr>
                     <td>Numero de identificacion:</td>
                     <td><input type="text" name="identificacion" id="identificacion"></td>
+                </tr>
+                <tr>
+                    <td>Tipo de identificacion:</td>
+                    <td><input type="text" name="tipoId" id="tipoId"></td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
@@ -47,14 +52,16 @@
         <%if (!request.getParameterMap().isEmpty()) {
           
           try{
-               Propietario p = propietario.getPropietario();
+                Propietario p = propietario.getPr();
                 //Convertir el codigo postal a un valor num�rico
-                String Identificacion = request.getParameter("Identificacion");
+                int Identificacion = Integer.valueOf(request.getParameter("identificacion"));
+                String tipoId = request.getParameter("tipoId");
                 String Nombre = request.getParameter("nombre");
                 String Direccion = request.getParameter("direccion");
                 String Ciudad = request.getParameter("ciudad");
                 String Departamento = request.getParameter("departamento");
                 p.setK_cedula(Identificacion);
+                p.setN_tipoDoc(tipoId);
                 p.setN_nombre(Nombre);
                 p.setN_ciudad(Ciudad);
                 p.setN_direccion(Direccion);
@@ -63,7 +70,7 @@
                out.println("Municipio ["+ p.getN_nombre()+ "] Incluido exitosamente");
             }
             catch(NumberFormatException e ){
-                out.println("Error --> " + "El código postal es requerido y debe ser numérico");
+                out.println("Error --> " + e.getMessage());
             }
             catch(Exception e1){
                 out.println("Error --> " + e1 + e1.getMessage());
