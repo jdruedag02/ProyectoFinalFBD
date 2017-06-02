@@ -66,7 +66,7 @@
                                 </select>
                             </div>
                             <div class="input-group row">
-                                <select class="form-control">
+                                <select class="form-control" name="anio" id="anio">
                                     <option selected >Año a pagar</option>
                                     <option value="2017">2017</option>
                                     <option value="2016">2016</option>

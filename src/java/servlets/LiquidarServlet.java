@@ -34,7 +34,8 @@ public class LiquidarServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String Placa = request.getParameter("placa");
             String Cedula = request.getParameter("cedula");
-            response.sendRedirect("liquidacion.jsp?placa="+Placa+"&cedula="+Cedula);
+            String Año = request.getParameter("anio");
+            response.sendRedirect("liquidacion.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Año);
         }
     }
 
