@@ -72,8 +72,7 @@
                                     <option value="2016">2016</option>
                                     <option value="2015">2015</option>
                                 </select>
-                            </div>
-                        </form>
+                            </div>                        
                         <div class="row flex-items-xs-center">
                             <div class="col-xs-12 col-md-3 columna">
                                 <div class="btn-grupo">
@@ -90,7 +89,8 @@
                                     <button class="btn btn-primary">Pagar</button>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
+                        </form>    
                     </div>  
                 </div>
             </div>
