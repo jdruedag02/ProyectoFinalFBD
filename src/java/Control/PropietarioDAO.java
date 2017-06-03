@@ -45,9 +45,30 @@ public class PropietarioDAO {
            throw new CaException( "PropietarioDAO", "No pudo crear el propietario "+ e.getMessage()+"--");
       }  finally {
          ServiceLocator.getInstance().liberarConexion();
-      }
-      
+      } 
     }
+    
+    public void buscarPropietario() throws CaException{
+        try{
+            String strSQL = "SELECT k_idcedula, n_tipodoc, n_nombre, n_direccion, n_ciudad, n_departamento FROM propietario WHERE k_idcedula = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setInt(1, pr.getK_cedula());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                pr.setK_cedula(rs.getInt(1));
+                pr.setN_tipoDoc(rs.getString(2));
+                pr.setN_nombre(rs.getString(3));
+                pr.setN_direccion(rs.getString(4));
+                pr.setN_ciudad(rs.getString(5));
+                pr.setN_departamento(rs.getString(6));
+                
+            }
+        }catch(SQLException e){
+            throw new CaException("propietarioDAO", "no se pudo realizar la busqueda");
+        }
+    }
+    
     public static Propietario getPr() {
         return pr;
     }

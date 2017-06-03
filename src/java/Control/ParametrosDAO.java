@@ -29,6 +29,26 @@ public class ParametrosDAO {
     /*
     Espacio destinado para operaciones sql
      */
+    
+    public void buscarParametros() throws CaException{
+        try{
+            String strSQL = "SELECT k_añoimpuesto, v_semaforizacion, f_descuento, f_limite, t_descuento FROM parametros WHERE k_añoimpuesto = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setBigDecimal(1, p.getK_añoImpuesto());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                p.setK_añoImpuesto(rs.getBigDecimal(1));
+                p.setV_semaforizacion(rs.getInt(2));
+                p.setF_descto(rs.getDate(3));
+                p.setF_limite(rs.getDate(4));
+                p.setV_descuento(rs.getShort(5));
+            }
+        }catch(SQLException e){
+            throw new CaException("ParametrosDAO", "no se pudo realizar la busqueda");
+        }
+    }
+    
     public Parametros getP() {
         return p;
     }

@@ -16,7 +16,7 @@ public class Linea {
     
     String k_idL;
     String n_nombreL;
-    String k_idM;
+    int k_idM;
 
     public Linea() {
         
@@ -38,11 +38,11 @@ public class Linea {
         this.n_nombreL = n_nombreL;
     }
 
-    public String getK_idM() {
+    public int getK_idM() {
         return k_idM;
     }
 
-    public void setK_idM(String k_idM) {
+    public void setK_idM(int k_idM) {
         this.k_idM = k_idM;
     }
     

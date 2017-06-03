@@ -6,6 +6,7 @@
 package Modelo;
 
 import Control.CilindrajeDAO;
+import java.math.BigDecimal;
 
 /**
  *
@@ -15,8 +16,8 @@ public class Cilindraje {
 
     String k_idL;
     String k_idCilindraje;
-    String k_modelo;
-    double v_valorBG;
+    BigDecimal k_modelo;
+    long v_valorBG;
     
 
     public Cilindraje() {
@@ -39,19 +40,19 @@ public class Cilindraje {
         this.k_idCilindraje = k_idCilindraje;
     }
 
-    public String getK_modelo() {
+    public BigDecimal getK_modelo() {
         return k_modelo;
     }
 
-    public void setK_modelo(String k_modelo) {
+    public void setK_modelo(BigDecimal k_modelo) {
         this.k_modelo = k_modelo;
     }
 
-    public double getV_valorBG() {
+    public long getV_valorBG() {
         return v_valorBG;
     }
 
-    public void setV_valorBG(double v_valorBG) {
+    public void setV_valorBG(long v_valorBG) {
         this.v_valorBG = v_valorBG;
     }
     

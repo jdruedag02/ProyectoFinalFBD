@@ -29,6 +29,25 @@ public class RangoDAO {
     /*
     Espacio destinado para operaciones sql
      */
+    
+    public void buscarRango() throws CaException{
+        try{
+            String strSQL = "SELECT k_idrango, v_minimo, v_maximo, t_tarifa, k_añoimpuesto FROM rango WHERE k_idrango = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setInt(1, r.getK_idR());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                r.setK_idR(rs.getInt(1));
+                r.setV_minimo(rs.getLong(2));
+                r.setV_maximo(rs.getLong(3));
+                r.setV_tarifa(rs.getFloat(4));
+                r.setK_añoParametro(rs.getBigDecimal(5));
+            }
+        }catch(SQLException e){
+            throw new CaException("rangoDAO", "no se pudo realizar la busqueda");
+        }
+    }
     public Rango getR() {
         return r;
     }

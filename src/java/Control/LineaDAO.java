@@ -28,6 +28,24 @@ public class LineaDAO {
     /*
     Espacio destinado para operaciones sql
      */
+    
+    public void buscarLinea() throws CaException{
+        try{
+            String strSQL = "SELECT k_idlinea, n_nombre, k_marca FROM linea WHERE k_idlinea = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, l.getK_idL());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                l.setK_idL(rs.getString(1));
+                l.setN_nombreL(rs.getString(2));
+                l.setK_idM(rs.getInt(3));
+            }
+        }catch(SQLException e){
+            throw new CaException("LineaDAO", "No se pudo hacer busqueda");
+        }
+    }
+    
     public static Linea getL() {
         return l;
     }

@@ -14,18 +14,18 @@ import Control.MarcaDAO;
 public class Marca {
     
     
-    String k_idM;
+    int k_idM;
     String n_nombreM;
 
     public Marca() {
         
     }
 
-    public String getK_idM() {
+    public int getK_idM() {
         return k_idM;
     }
 
-    public void setK_idM(String k_idM) {
+    public void setK_idM(int k_idM) {
         this.k_idM = k_idM;
     }
 

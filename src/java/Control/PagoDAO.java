@@ -46,7 +46,26 @@ public class PagoDAO {
       }  finally {
          ServiceLocator.getInstance().liberarConexion();
       }
-      
+    }
+    
+    public void buscarPago() throws CaException{
+        try{
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_idLiquidacion FROM pago where k_refpago = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setInt(1, p.getK_refPago());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                p.setK_refPago(rs.getInt(1));
+                p.setF_pago(rs.getDate(2));
+                p.setV_vlrPagado(rs.getLong(3));
+                p.setN_banco(rs.getString(4));
+                p.setN_forPago(rs.getString(5));
+                p.setK_idLiquidacion(rs.getInt(6));
+            }
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }
     }
     public Pago getP() {
         return p;

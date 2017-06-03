@@ -13,7 +13,6 @@ import Modelo.Linea;
 import util.CaException;
 import util.ServiceLocator;
 import Modelo.Vehiculo;
-import java.math.BigDecimal;
 
 /**
  *
@@ -52,6 +51,30 @@ public class VehiculoDAO {
             throw new CaException("VehiculoDAO", "no se pudo incluir vehiculo");
         } finally{
             ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    
+    public void buscarVehiculo() throws CaException{
+        try{
+            String strSQL = "SELECT k_idplaca, n_uso, v_cilindraje, n_tipo, k_marca, k_cilindraje, k_linea, k_modelo FROM vehiculo WHERE k_idplaca = ? ";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, v.getK_placa());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                v.setK_placa(rs.getString(1));
+                v.setN_uso(rs.getString(2));
+                v.setN_cilindraje(rs.getBigDecimal(3));
+                v.setN_tipo(rs.getString(4));
+                v.setK_idM(rs.getInt(5));
+                v.setK_idCilindraje(rs.getString(6));
+                v.setK_idL(rs.getString(7));
+                v.setK_modelo(rs.getBigDecimal(8));
+                
+            }
+        }catch(SQLException e){
+            throw new CaException("vehiculoDAO", "no se pudo realizar la busqueda");
         }
     }
     

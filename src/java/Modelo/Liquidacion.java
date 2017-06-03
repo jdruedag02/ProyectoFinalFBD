@@ -35,12 +35,12 @@ public class Liquidacion {
         this.k_idLiquidacion = k_idLiquidacion;
     }
 
-    public BigDecimal getN_añoImpuesto() {
+    public BigDecimal getN_añoLiquidacion() {
         return n_añoliquidacion;
     }
 
-    public void setN_añoLiquidacion(BigDecimal n_añoImpuesto) {
-        this.n_añoliquidacion = n_añoImpuesto;
+    public void setN_añoLiquidacion(BigDecimal n_añoLiquidacion) {
+        this.n_añoliquidacion = n_añoLiquidacion;
     }
 
     public long getV_total() {

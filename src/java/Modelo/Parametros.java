@@ -6,6 +6,8 @@
 package Modelo;
 
 import Control.ParametrosDAO;
+import java.math.BigDecimal;
+import java.sql.Date;
 
 /**
  *
@@ -14,53 +16,53 @@ import Control.ParametrosDAO;
 public class Parametros {
     
     
-    String k_añoImpuesto;
-    double v_semaforizacion;
-    String f_descto;
-    String f_limite;
-    double v_descuento;
+    BigDecimal k_añoImpuesto;
+    int v_semaforizacion;
+    Date f_descto;
+    Date f_limite;
+    short v_descuento;
 
     public Parametros() {
         
     }
 
-    public String getK_añoImpuesto() {
+    public BigDecimal getK_añoImpuesto() {
         return k_añoImpuesto;
     }
 
-    public void setK_añoImpuesto(String k_añoImpuesto) {
+    public void setK_añoImpuesto(BigDecimal k_añoImpuesto) {
         this.k_añoImpuesto = k_añoImpuesto;
     }
 
-    public double getV_semaforizacion() {
+    public int getV_semaforizacion() {
         return v_semaforizacion;
     }
 
-    public void setV_semaforizacion(double v_semaforizacion) {
+    public void setV_semaforizacion(int v_semaforizacion) {
         this.v_semaforizacion = v_semaforizacion;
     }
 
-    public String getF_descto() {
+    public Date getF_descto() {
         return f_descto;
     }
 
-    public void setF_descto(String f_descto) {
+    public void setF_descto(Date f_descto) {
         this.f_descto = f_descto;
     }
 
-    public String getF_limite() {
+    public Date getF_limite() {
         return f_limite;
     }
 
-    public void setF_limite(String f_limite) {
+    public void setF_limite(Date f_limite) {
         this.f_limite = f_limite;
     }
 
-    public double getV_descuento() {
+    public short getV_descuento() {
         return v_descuento;
     }
 
-    public void setV_descuento(double v_descuento) {
+    public void setV_descuento(short v_descuento) {
         this.v_descuento = v_descuento;
     }
     
