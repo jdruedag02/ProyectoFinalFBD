@@ -6,6 +6,7 @@
 package Modelo;
 
 import Control.VehiculoDAO;
+import java.math.BigDecimal;
 
 /**
  *
@@ -16,14 +17,14 @@ public class Vehiculo {
     
     String k_placa;
     int q_capacidad;
-    String n_cilindraje;
+    BigDecimal n_cilindraje;
     String n_tipo;
     String n_modelo;
     String n_uso;
-    String k_idM;
+    int k_idM;
     String k_idL;
     String k_idCilindraje;
-    String k_modelo;
+    BigDecimal k_modelo;
 
     public Vehiculo() {
         
@@ -45,11 +46,11 @@ public class Vehiculo {
         this.q_capacidad = q_capacidad;
     }
 
-    public String getN_cilindraje() {
+    public BigDecimal getN_cilindraje() {
         return n_cilindraje;
     }
 
-    public void setN_cilindraje(String n_cilindraje) {
+    public void setN_cilindraje(BigDecimal n_cilindraje) {
         this.n_cilindraje = n_cilindraje;
     }
 
@@ -77,11 +78,11 @@ public class Vehiculo {
         this.n_uso = n_uso;
     }
 
-    public String getK_idM() {
+    public int getK_idM() {
         return k_idM;
     }
 
-    public void setK_idM(String k_idM) {
+    public void setK_idM(int k_idM) {
         this.k_idM = k_idM;
     }
 
@@ -101,11 +102,11 @@ public class Vehiculo {
         this.k_idCilindraje = k_idCilindraje;
     }
 
-    public String getK_modelo() {
+    public BigDecimal getK_modelo() {
         return k_modelo;
     }
 
-    public void setK_modelo(String k_modelo) {
+    public void setK_modelo(BigDecimal k_modelo) {
         this.k_modelo = k_modelo;
     }
     

@@ -6,6 +6,7 @@
 package Modelo;
 
 import Control.PagoDAO;
+import java.sql.Date;
 
 /**
  *
@@ -14,38 +15,38 @@ import Control.PagoDAO;
 public class Pago {
     
     
-    String k_refPago;
-    String f_pago;
-    double v_vlrPagado;
+    int k_refPago;
+    Date f_pago;
+    long v_vlrPagado;
     String n_banco;
     String n_forPago;
-    String k_idLiquidacion;
+    int k_idLiquidacion;
 
     public Pago() {
         
     }
 
-    public String getK_refPago() {
+    public int getK_refPago() {
         return k_refPago;
     }
 
-    public void setK_refPago(String k_refPago) {
+    public void setK_refPago(int k_refPago) {
         this.k_refPago = k_refPago;
     }
 
-    public String getF_pago() {
+    public Date getF_pago() {
         return f_pago;
     }
 
-    public void setF_pago(String f_pago) {
+    public void setF_pago(Date f_pago) {
         this.f_pago = f_pago;
     }
 
-    public double getV_vlrPagado() {
+    public long getV_vlrPagado() {
         return v_vlrPagado;
     }
 
-    public void setV_vlrPagado(double v_vlrPagado) {
+    public void setV_vlrPagado(long v_vlrPagado) {
         this.v_vlrPagado = v_vlrPagado;
     }
 
@@ -65,11 +66,11 @@ public class Pago {
         this.n_forPago = n_forPago;
     }
 
-    public String getK_idLiquidacion() {
+    public int getK_idLiquidacion() {
         return k_idLiquidacion;
     }
 
-    public void setK_idLiquidacion(String k_idLiquidacion) {
+    public void setK_idLiquidacion(int k_idLiquidacion) {
         this.k_idLiquidacion = k_idLiquidacion;
     }
 }

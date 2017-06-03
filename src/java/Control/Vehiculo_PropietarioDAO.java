@@ -29,6 +29,23 @@ public class Vehiculo_PropietarioDAO {
     /*
     Espacio destinado para operaciones sql
      */
+    
+    public void incluirVehiculo_propietario() throws CaException{
+        try{
+            String strSQL = "INSERT INTO propietario (k_placa, k_cedula, f_compra) VALUES(?,?,?)";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, vp.getK_placa());
+            prepStmt.setInt(2, vp.getK_cedula());
+            prepStmt.setDate(3, vp.getF_compra());
+        }catch(SQLException e){
+            throw new CaException("Vehiculo_propietarioDAO", "no se puedo conectar");            
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }  
+    }
+    
+    
     public Vehiculo_Propietario getVp() {
         return vp;
     }

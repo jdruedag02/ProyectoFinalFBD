@@ -6,6 +6,7 @@
 package Modelo;
 
 import Control.Vehiculo_PropietarioDAO;
+import java.sql.Date;
 
 /**
  *
@@ -15,8 +16,8 @@ public class Vehiculo_Propietario {
     
     
     String k_placa;
-    String k_cedula;
-    String f_compra;
+    int k_cedula;
+    Date f_compra;
 
     public Vehiculo_Propietario() {
         
@@ -30,19 +31,19 @@ public class Vehiculo_Propietario {
         this.k_placa = k_placa;
     }
 
-    public String getK_cedula() {
+    public int getK_cedula() {
         return k_cedula;
     }
 
-    public void setK_cedula(String k_cedula) {
+    public void setK_cedula(int k_cedula) {
         this.k_cedula = k_cedula;
     }
 
-    public String getF_compra() {
+    public Date getF_compra() {
         return f_compra;
     }
 
-    public void setF_compra(String f_compra) {
+    public void setF_compra(Date f_compra) {
         this.f_compra = f_compra;
     }
     

@@ -32,12 +32,12 @@ public class PagoDAO {
         String strSQL = "INSERT INTO pago (k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_idLiquidacion) VALUES(?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-        prepStmt.setString(1,p.getK_refPago()); 
-        prepStmt.setString(2, p.getF_pago() ); 
-        prepStmt.setDouble(3, p.getV_vlrPagado()); 
+        prepStmt.setInt(1,p.getK_refPago()); 
+        prepStmt.setDate(2, p.getF_pago() ); 
+        prepStmt.setLong(3, p.getV_vlrPagado()); 
         prepStmt.setString(4, p.getN_banco()); 
         prepStmt.setString(5, p.getN_forPago());
-        prepStmt.setString(6, p.getK_idLiquidacion());
+        prepStmt.setInt(6, p.getK_idLiquidacion());
         prepStmt.executeUpdate();
         prepStmt.close();
         ServiceLocator.getInstance().commit();
