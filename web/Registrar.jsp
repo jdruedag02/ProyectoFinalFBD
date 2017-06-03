@@ -100,7 +100,7 @@
                             <option value="camioneta y campero">Camioneta y Campero</option>
                             <option value="carga">Carga</option>
                             <option value="electrico">Electrico</option>
-                            <option value="motocicleta y motocarro">Motocicleta y Motocarro</option>
+                            <option value="motocicleta">Motocicleta</option>
                             <option value="pasajero">Pasajeros</option>
                         </select>
                     </td>

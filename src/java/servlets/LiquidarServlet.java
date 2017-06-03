@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import Control.VehiculoDAO;
+import Control.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Modelo.*;
+import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.CaException;
@@ -23,6 +24,7 @@ import util.CaException;
 public class LiquidarServlet extends HttpServlet {
     Vehiculo v;
     Liquidacion l;
+    Cilindraje c;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,10 +46,13 @@ public class LiquidarServlet extends HttpServlet {
             
             VehiculoDAO vdao = new VehiculoDAO();
             v = vdao.getV();
-            
             v.setK_placa(Placa);
             vdao.buscarVehiculo();
             
+            
+            CilindrajeDAO cdao = new CilindrajeDAO();
+            c = cdao.getC();
+            cdao.BuscarBaseGravable(v.getK_idCilindraje(), v.getK_idL(), v.getK_modelo());
             
             
             response.sendRedirect("liquidacion.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio);
