@@ -77,6 +77,8 @@ public class LiquidacionDAO {
             }
         }catch(SQLException e){
             throw new CaException("liquidacionDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     

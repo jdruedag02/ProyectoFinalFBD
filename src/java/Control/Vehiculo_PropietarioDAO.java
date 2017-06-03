@@ -32,12 +32,15 @@ public class Vehiculo_PropietarioDAO {
     
     public void incluirVehiculo_propietario() throws CaException{
         try{
-            String strSQL = "INSERT INTO propietario (k_placa, k_cedula, f_compra) VALUES(?,?,?)";
+            String strSQL = "INSERT INTO vehiculo_propietario (k_placa, k_cedula, f_compra) VALUES(?,?,?)";
             Connection conexion = ServiceLocator.getInstance().tomarConexion();
             PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
             prepStmt.setString(1, vp.getK_placa());
             prepStmt.setInt(2, vp.getK_cedula());
             prepStmt.setDate(3, vp.getF_compra());
+            prepStmt.executeUpdate();
+            prepStmt.close();
+            ServiceLocator.getInstance().commit();
         }catch(SQLException e){
             throw new CaException("Vehiculo_propietarioDAO", "no se puedo conectar");            
         }finally{
@@ -46,23 +49,25 @@ public class Vehiculo_PropietarioDAO {
     }
     
     
-    public void buscarVehiculo() throws CaException{
-        try{
-            String strSQL = "SELECT k_placa, k_cedula, f_compra FROM vehiculo_propietario WHERE k_placa = ? and k_cedula = ?";
-            Connection conexion = ServiceLocator.getInstance().tomarConexion();
-            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-            prepStmt.setString(1, vp.getK_placa());
-            prepStmt.setInt(2,vp.getK_cedula());
-            ResultSet rs = prepStmt.executeQuery();
-            while(rs.next()){
-                vp.setK_placa(rs.getString(1));
-                vp.setK_cedula(rs.getInt(2));
-                vp.setF_compra(rs.getDate(3));
-            }
-        }catch(SQLException e){
-            throw new CaException("vehiculo_propietario", "no se pudo realizar la busqueda");
-        }
-    }
+//    public void buscarVehiculo() throws CaException{
+//        try{
+//            String strSQL = "SELECT k_placa, k_cedula, f_compra FROM vehiculo_propietario WHERE k_placa = ? and k_cedula = ?";
+//            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+//            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+//            prepStmt.setString(1, vp.getK_placa());
+//            prepStmt.setInt(2,vp.getK_cedula());
+//            ResultSet rs = prepStmt.executeQuery();
+//            while(rs.next()){
+//                vp.setK_placa(rs.getString(1));
+//                vp.setK_cedula(rs.getInt(2));
+//                vp.setF_compra(rs.getDate(3));
+//            }
+//        }catch(SQLException e){
+//            throw new CaException("vehiculo_propietario", "no se pudo realizar la busqueda");
+//        }finally{
+//            ServiceLocator.getInstance().liberarConexion();
+//        }
+//    }
     
     public Vehiculo_Propietario getVp() {
         return vp;

@@ -65,6 +65,8 @@ public class PagoDAO {
             }
         }catch(SQLException e){
             throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     public Pago getP() {

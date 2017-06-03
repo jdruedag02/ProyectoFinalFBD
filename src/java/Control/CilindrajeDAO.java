@@ -41,6 +41,8 @@ public class CilindrajeDAO {
             }
         }catch(SQLException e){
             throw new CaException("CilidrajeDAO", "no se pudo realzar la conexion");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     

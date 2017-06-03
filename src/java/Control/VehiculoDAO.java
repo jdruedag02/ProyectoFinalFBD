@@ -75,6 +75,8 @@ public class VehiculoDAO {
             }
         }catch(SQLException e){
             throw new CaException("vehiculoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     

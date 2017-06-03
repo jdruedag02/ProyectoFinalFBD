@@ -46,6 +46,8 @@ public class RangoDAO {
             }
         }catch(SQLException e){
             throw new CaException("rangoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     public Rango getR() {

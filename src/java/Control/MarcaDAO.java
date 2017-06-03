@@ -42,6 +42,27 @@ public class MarcaDAO {
             }
         }catch(SQLException e){
             throw new CaException("MarcaDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public void buscarIdMarca(String nMarca) throws CaException{
+        try{
+            String strSQL = "SELECT k_idmarca FROM marca WHERE n_nombre = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, nMarca);
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                m.setK_idM(rs.getInt(1));
+                m.setN_nombreM(nMarca);
+            }
+        }catch(SQLException e){
+            
+            throw new CaException("MarcaDAO", e.getCause().toString()); 
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
             

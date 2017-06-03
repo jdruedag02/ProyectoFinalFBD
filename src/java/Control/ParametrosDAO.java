@@ -46,6 +46,8 @@ public class ParametrosDAO {
             }
         }catch(SQLException e){
             throw new CaException("ParametrosDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     

@@ -66,6 +66,8 @@ public class PropietarioDAO {
             }
         }catch(SQLException e){
             throw new CaException("propietarioDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     
