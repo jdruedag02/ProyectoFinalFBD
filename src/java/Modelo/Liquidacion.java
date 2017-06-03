@@ -6,7 +6,11 @@
 package Modelo;
 
 import Control.LiquidacionDAO;
+import java.io.IOException;
 import java.math.BigDecimal;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -26,7 +30,7 @@ public class Liquidacion {
     int k_cedula;
     BigDecimal k_añoImpuesto;
 
-
+    
     public int getK_idLiquidacion() {
         return k_idLiquidacion;
     }

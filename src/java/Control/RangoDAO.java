@@ -30,7 +30,7 @@ public class RangoDAO {
     Espacio destinado para operaciones sql
      */
     
-    public void buscarRango() throws CaException{
+    public void buscarRango(long baseGravable) throws CaException{
         try{
             String strSQL = "SELECT k_idrango, v_minimo, v_maximo, t_tarifa, k_añoimpuesto FROM rango WHERE k_idrango = ?";
             Connection conexion = ServiceLocator.getInstance().tomarConexion();

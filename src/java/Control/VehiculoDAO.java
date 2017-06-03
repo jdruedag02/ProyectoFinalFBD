@@ -80,6 +80,7 @@ public class VehiculoDAO {
         }
     }
     
+    
     public Vehiculo getV() {
         return v;
     }

@@ -6,6 +6,7 @@
 package Control;
 
 import Modelo.Liquidacion;
+import java.math.BigDecimal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,6 +78,25 @@ public class LiquidacionDAO {
             }
         }catch(SQLException e){
             throw new CaException("liquidacionDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public void BuscarBaseGravable(String idCilindraje, String idLinea, BigDecimal modelo) throws CaException {
+        try {
+            String strSQL = "SELECT (v_basegravable*1000) FROM cilindraje WHERE k_idcilindraje = ? and k_linea = ? and k_modelo = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, idCilindraje);
+            prepStmt.setString(2, idLinea);
+            prepStmt.setBigDecimal(3, modelo);
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                li.setV_baseGravable(rs.getLong(1));
+            }
+        } catch (SQLException e) {
+            throw new CaException("LiquidacionDAO", "no se pudo hallar la base gravable");
         }finally{
             ServiceLocator.getInstance().liberarConexion();
         }
