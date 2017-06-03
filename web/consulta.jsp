@@ -26,7 +26,7 @@
             <th>No</th><th>idPago</th> <th>fecha pago</th> <th>valor pagado</th> <th>banco </th><th> forma de pago</th> <th>idLiquidacion</th>
         </thead>
         <tbody>
-            <%for (int i = 0; i <= listapago.size(); i++) {%>
+            <%for (int i = 0; i < listapago.size(); i++) {%>
             <tr>
                 <td><%=(i + 1)%> </td>
                 <td><%=listapago.get(i).getK_refPago()%></td>
