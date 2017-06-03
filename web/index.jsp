@@ -84,7 +84,7 @@
                             </div>-->
                         <div class="col-xs-12 col-md-3 columna">
                             <div class="btn-grupo">
-                                <button class="btn btn-primary" >Consultar pagos</button>
+                                <a href="consulta.jsp">Consultar pagos</a> 
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-3 columna">
