@@ -13,6 +13,7 @@ import Modelo.Linea;
 import util.CaException;
 import util.ServiceLocator;
 import Modelo.Pago;
+import java.util.ArrayList;
 
 /**
  *
@@ -68,6 +69,32 @@ public class PagoDAO {
         }finally{
             ServiceLocator.getInstance().liberarConexion();
         }
+    }
+    
+    public ArrayList<Pago> listarPago() throws CaException {
+        ArrayList<Pago> pagos = new ArrayList<Pago>();
+
+        try{
+            String strSQL = "SELECT * FROM pago";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            //prepStmt.setInt(1, p.getK_refPago());
+            ResultSet rs = prepStmt.executeQuery();
+            while(rs.next()){
+                p.setK_refPago(rs.getInt(1));
+                p.setF_pago(rs.getDate(2));
+                p.setV_vlrPagado(rs.getLong(3));
+                p.setN_banco(rs.getString(4));
+                p.setN_forPago(rs.getString(5));
+                p.setK_idLiquidacion(rs.getInt(6));
+                
+                pagos.add(p);
+            }
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }  
+         return pagos;
+
     }
     public Pago getP() {
         return p;
