@@ -20,11 +20,23 @@ public class Rango {
     long v_maximo;
     float v_tarifa;
     BigDecimal k_añoParametro;
+    String n_tiporan;
+    
 
     public Rango() {
         
     }
 
+    public String getN_tiporan() {
+        return n_tiporan;
+    }
+
+    public void setN_tiporan(String n_tiporan) {
+        this.n_tiporan = n_tiporan;
+    }
+
+        
+    
     public int getK_idR() {
         return k_idR;
     }

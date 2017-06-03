@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Modelo.*;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.CaException;
@@ -25,6 +28,8 @@ public class LiquidarServlet extends HttpServlet {
     Vehiculo v;
     Liquidacion l;
     Cilindraje c;
+    Rango r;
+    Parametros p;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,11 +54,35 @@ public class LiquidarServlet extends HttpServlet {
             v.setK_placa(Placa);
             vdao.buscarVehiculo();
             
-            
             CilindrajeDAO cdao = new CilindrajeDAO();
             c = cdao.getC();
             cdao.BuscarBaseGravable(v.getK_idCilindraje(), v.getK_idL(), v.getK_modelo());
             
+            RangoDAO rdao = new RangoDAO();
+            r = rdao.getR();
+            if(v.getN_uso() == "particular"){
+                rdao.buscarRangoParticular(c.getV_valorBG());
+            }else if(v.getN_tipo() == "motocicleta"){
+                rdao.buscarRangoMoto();
+            }else if(v.getN_uso() == "publico"){
+                rdao.buscarRangoPublico();
+            }
+            
+            ParametrosDAO pdao = new ParametrosDAO();
+            p = pdao.getP();
+            p.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
+            pdao.buscarParametros();
+            
+            l.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
+            l.setK_cedula(Integer.valueOf(Cedula));
+            Date date = new Date();
+            DateFormat idliquidacion = new SimpleDateFormat("yyyyMMHHss");
+            DateFormat añoliquidacion = new SimpleDateFormat("yyyy");
+            l.setK_idLiquidacion(Integer.valueOf(idliquidacion.format(date)));
+            l.setK_placa(Placa);
+            l.setN_añoLiquidacion(BigDecimal.valueOf(Integer.valueOf(añoliquidacion.format(date))));
+            l.setV_baseGravable(c.getV_valorBG());
+            l.setV_semaforizaion(p.getV_semaforizacion());
             
             response.sendRedirect("liquidacion.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio);
         }
