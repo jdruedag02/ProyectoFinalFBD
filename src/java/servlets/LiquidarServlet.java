@@ -64,11 +64,11 @@ public class LiquidarServlet extends HttpServlet {
             //Rango de tarifa al que el vehiculo aplica segun caracteristicas
             RangoDAO rdao = new RangoDAO();
             r = rdao.getR();
-            if(v.getN_uso() == "particular"){
+            if(v.getN_uso().equals("particular")){
                 rdao.buscarRangoParticular(c.getV_valorBG());
-            }else if(v.getN_tipo() == "motocicleta"){
+            }else if(v.getN_tipo().equals("motocicleta")){
                 rdao.buscarRangoMoto();
-            }else if(v.getN_uso() == "publico"){
+            }else if(v.getN_uso().equals("publico")){
                 rdao.buscarRangoPublico();
             }
             
