@@ -119,4 +119,9 @@ public class Liquidacion {
         this.k_añoImpuesto = k_añoImpuesto;
     }
 
+    public double valorDeLiquidacion(int base, float tarifa){
+        double valorImpuesto = (base*tarifa)*0.01;
+        
+        return valorImpuesto;
+    }
 }

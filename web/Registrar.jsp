@@ -181,7 +181,7 @@
                     out.println("encontre marca");
                     ldao.buscarLineaCilindraje(idCilindraje, linea, idMarca, BigDecimal.valueOf(Integer.valueOf(modelo)));
                     String idLinea = ldao.getL().getK_idL();
-                    
+                    out.println("encontre linea");
                     BigDecimal nCilindraje = BigDecimal.valueOf(Integer.valueOf(idCilindraje));
                     BigDecimal idModelo = BigDecimal.valueOf(Integer.valueOf(modelo));
                     

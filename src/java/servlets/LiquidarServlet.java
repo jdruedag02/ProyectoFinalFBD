@@ -84,7 +84,12 @@ public class LiquidarServlet extends HttpServlet {
             l.setV_baseGravable(c.getV_valorBG());
             l.setV_semaforizaion(p.getV_semaforizacion());
             
-            response.sendRedirect("liquidacion.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio);
+            Liquidacion liquidar = new Liquidacion();
+            
+            double ValorNumImpuesto = liquidar.valorDeLiquidacion(17250000, (float) 1.5);
+            String ValorImpuesto = Double.toString(ValorNumImpuesto);
+            
+            response.sendRedirect("prueba.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio+"&valor="+ValorImpuesto);
         }
     }
 
