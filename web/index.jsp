@@ -75,6 +75,8 @@
                             </div>
                             <input type="submit" value="Generar liquidacion">
                             <a href="Registrar.jsp"> registrar</a>
+                            <input type="submit" value="RegistrarPago">
+                            <a href="RegistrarPago.jsp"> Registrar pago</a>
                         </form>
                         <!--<div class="row flex-items-xs-center">
                             <div class="col-xs-12 col-md-3 columna">
