@@ -71,7 +71,7 @@
                                     p.setK_idLiquidacion(NumLiquidacion);
                                     
                                     pdao.incluirPago();
-                                    out.println("inclui propietario");
+                                    out.println("El pago a sido incluido con exito");
                                     
                                     out.println("LO HICIMOS!");
                                 } catch (NumberFormatException e) {
