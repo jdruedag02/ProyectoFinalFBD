@@ -96,13 +96,23 @@ public class LiquidarServlet extends HttpServlet {
             long baseGravable = c.getV_valorBG();
             float tarifa = r.getV_tarifa();
             int semaforizacion = p.getV_semaforizacion();
-            short descuento = p.getV_descuento();
+            //short descuento = p.getV_descuento();            
+            double ValorNumImpuesto = l.valorDeLiquidacion(baseGravable, tarifa);
+            double descuento = l.valorDescuYPagoV(ValorNumImpuesto);
+            double ValorTotalDescuento = l.valorTotalDescuento(semaforizacion, ValorNumImpuesto);
+            double ValorTotalNDescuento = l.ValorTotalNDescuento(semaforizacion, ValorNumImpuesto);
             
-            
-            double ValorNumImpuesto = l.valorDeLiquidacion(17250000, (float) 1.5);
             String ValorImpuesto = Double.toString(ValorNumImpuesto);
+            String BaseGravable = Long.toString(baseGravable);
+            String Tarifa = Float.toString(tarifa);
+            String Semaforizacion = Integer.toString(semaforizacion);
+            String Descuento = Double.toString(descuento);
+            String ValorTotalDes = Double.toString(ValorTotalDescuento);
+            String ValorTotalNDes = Double.toString(ValorTotalNDescuento);
             
-            response.sendRedirect("prueba.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio+"&valor="+ValorImpuesto);
+            response.sendRedirect("prueba.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio+"&valor="+ValorImpuesto+
+                    "&basegravable="+BaseGravable+"&tarifa="+Tarifa+"&semaforizacion="+Semaforizacion+"&descuento="+Descuento+
+                    "&valortd="+ValorTotalDes+"&valortnd="+ValorTotalNDes);
         }
     }
 

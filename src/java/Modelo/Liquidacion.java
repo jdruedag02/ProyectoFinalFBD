@@ -119,9 +119,24 @@ public class Liquidacion {
         this.k_añoImpuesto = k_añoImpuesto;
     }
 
-    public double valorDeLiquidacion(int base, float tarifa){
+    public double valorDeLiquidacion(long base, float tarifa){
         double valorImpuesto = (base*tarifa)*0.01;
         
         return valorImpuesto;
+    }
+    
+    public double valorDescuYPagoV(double ValorLiquidacion){
+        double ValorDescuentoYPagoV = (ValorLiquidacion*0.1);
+        return ValorDescuentoYPagoV;
+    }
+    
+    public double valorTotalDescuento(int semaforizacion, double valorLiquidacion){
+        double valorTotal = (semaforizacion + valorLiquidacion)-(valorLiquidacion*0.1);
+        return valorTotal;
+    }
+    
+    public double ValorTotalNDescuento(int semaforizacion, double valorLiquidacion){
+        double valorTotalS = (semaforizacion + valorLiquidacion);
+        return valorTotalS;
     }
 }

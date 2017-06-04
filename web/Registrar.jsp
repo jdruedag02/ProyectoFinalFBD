@@ -100,7 +100,7 @@
                             <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" id="ciudad">
                         </div>
                         <div class="col-xs-12 col-md-3">
-                            <input type="text" class="form-control" placeholder="Departamento" name="direccion" id="direccion">
+                            <input type="text" class="form-control" placeholder="Departamento" name="departamento" id="departamento">
                         </div>
                     </div>
                     <div class="form-group row titulo-form">
