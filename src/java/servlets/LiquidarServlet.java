@@ -25,11 +25,6 @@ import util.CaException;
  * @author JULIAN
  */
 public class LiquidarServlet extends HttpServlet {
-    Vehiculo v;
-    Liquidacion l;
-    Cilindraje c;
-    Rango r;
-    Parametros p;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,15 +44,24 @@ public class LiquidarServlet extends HttpServlet {
             String Cedula = request.getParameter("cedula");
             String Anio = request.getParameter("anio");
             
+            Vehiculo v;
+            Liquidacion l ;
+            Cilindraje c;
+            Rango r;
+            Parametros p;
+            
+            // Vehiculo al que se le calculara el impuesto
             VehiculoDAO vdao = new VehiculoDAO();
             v = vdao.getV();
             v.setK_placa(Placa);
             vdao.buscarVehiculo();
             
+            // Cilindraje del vehiculo al que se le calculara el impuesto (obetener base gravable)
             CilindrajeDAO cdao = new CilindrajeDAO();
             c = cdao.getC();
             cdao.BuscarBaseGravable(v.getK_idCilindraje(), v.getK_idL(), v.getK_modelo());
             
+            //Rango de tarifa al que el vehiculo aplica segun caracteristicas
             RangoDAO rdao = new RangoDAO();
             r = rdao.getR();
             if(v.getN_uso() == "particular"){
@@ -68,11 +72,15 @@ public class LiquidarServlet extends HttpServlet {
                 rdao.buscarRangoPublico();
             }
             
+            //parametros del año fiscal que se esta realizando el calculo del impuesto
             ParametrosDAO pdao = new ParametrosDAO();
             p = pdao.getP();
             p.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
             pdao.buscarParametros();
             
+            //Armar la liquidacion completa
+            LiquidacionDAO ldao = new LiquidacionDAO();
+            l = ldao.getLi();
             l.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
             l.setK_cedula(Integer.valueOf(Cedula));
             Date date = new Date();
@@ -84,9 +92,14 @@ public class LiquidarServlet extends HttpServlet {
             l.setV_baseGravable(c.getV_valorBG());
             l.setV_semaforizaion(p.getV_semaforizacion());
             
-            Liquidacion liquidar = new Liquidacion();
+            //variables con los valores necesarios para realizar el calculo del impuesto
+            long baseGravable = c.getV_valorBG();
+            float tarifa = r.getV_tarifa();
+            int semaforizacion = p.getV_semaforizacion();
+            short descuento = p.getV_descuento();
             
-            double ValorNumImpuesto = liquidar.valorDeLiquidacion(17250000, (float) 1.5);
+            
+            double ValorNumImpuesto = l.valorDeLiquidacion(17250000, (float) 1.5);
             String ValorImpuesto = Double.toString(ValorNumImpuesto);
             
             response.sendRedirect("prueba.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio+"&valor="+ValorImpuesto);
