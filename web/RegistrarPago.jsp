@@ -42,44 +42,48 @@
                 </tr>
                 <tr>
                     <td>Forma de pago:</td>
-                    <td><input type="text" name="ciudad" id="formaPago"></td>
+                    <td><input type="text" name="formaPago" id="formaPago"></td>
                 </tr>
                 <tr>
                     <td>Numero liquidacion:</td>
-                    <td><input type="text" name="departamento" id="numeroLiquidacion"></td>
+                    <td><input type="text" name="numeroLiquidacion" id="numeroLiquidacion"></td>
                 </tr>
                 <tr>
-                    <td rowspaw="2">
-                        <input type="submit" value="RegistrarPago">
-                        <%if (!request.getParameterMap().isEmpty()) {
+                    <td rowspaw="2"> </td>
+                <input type="submit" value="RegistrarPago">
+                </tr>
+            </table>
+        </form>
+        <%if (!request.getParameterMap().isEmpty()) {
 
-                                try {
+                try {
 
-                                    Pago p = pdao.getP();
+                    Pago p = pdao.getP();
 
-                                    int NumeroPago = Integer.valueOf(request.getParameter("idPago"));
-                                    long ValorPagado = Long.parseLong(request.getParameter("tipoId"));
-                                    String Banco = request.getParameter("banco");
-                                    String FormaPago = request.getParameter("formaPago");
-                                    int NumLiquidacion = Integer.valueOf(request.getParameter("numeroLiquidacion"));
-                                    
-                                    p.setK_refPago(NumeroPago);
-                                    p.setF_pago(Date.valueOf(request.getParameter("fechaPago")));
-                                    p.setV_vlrPagado(ValorPagado);
-                                    p.setN_banco(Banco);
-                                    p.setN_forPago(FormaPago);
-                                    p.setK_idLiquidacion(NumLiquidacion);
-                                    
-                                    pdao.incluirPago();
-                                    out.println("El pago a sido incluido con exito");
-                                    
-                                    out.println("LO HICIMOS!");
-                                } catch (NumberFormatException e) {
-                                    out.println("Error --> " + e.getMessage());
-                                } catch (Exception e1) {
-                                    out.println("Error --> " + e1 + e1.getMessage());
-                                }
+                    int NumeroPago = Integer.valueOf(request.getParameter("idPago"));
+                    long ValorPagado = Long.valueOf(request.getParameter("vPagado"));
+                    String Banco = request.getParameter("banco");
+                    String FormaPago = request.getParameter("formaPago");
+                    int NumLiquidacion = Integer.valueOf(request.getParameter("numeroLiquidacion"));
+                    String fecha = request.getParameter("fechaPago");
 
-                            }%>
-                        </body>
-                        </html>
+                    p.setK_refPago(NumeroPago);
+                    p.setF_pago(Date.valueOf(fecha));
+                    p.setV_vlrPagado(ValorPagado);
+                    p.setN_banco(Banco);
+                    p.setN_forPago(FormaPago);
+                    p.setK_idLiquidacion(NumLiquidacion);
+
+                    pdao.incluirPago();
+                    out.println("El pago a sido incluido con exito");
+
+                    out.println("LO HICIMOS!");
+                } catch (NumberFormatException e) {
+                    out.println("Error --> 1" + e.getMessage());
+                } catch (Exception e1) {
+                    out.println("Error --> 2" + e1 + e1.getMessage());
+                }
+
+            }%>
+    </body>
+</html>

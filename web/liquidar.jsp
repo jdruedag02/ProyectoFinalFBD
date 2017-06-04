@@ -23,12 +23,12 @@
                     <td><input type="text" name="placa" id="placa"></td>
                 </tr>
                 <tr>
-                    <select  name="anio" id="anio">
-                                    <option selected >Año a pagar</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                </select>
+                <select  name="anio" id="anio">
+                    <option selected >Año a pagar</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                </select>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Liquidar"></td>

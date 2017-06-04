@@ -39,19 +39,27 @@ public class VerificarRegistro extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String placa = request.getParameter("placa");
             String cedula = request.getParameter("cedula");
+            String anio = request.getParameter("anio");
             
             
-            
-            if ("Generar liquidacion".equals(request.getParameter("liquidar"))) {
+            if ("Generar Liquidacion".equals(request.getParameter("liquidar"))) {
+                //out.println("entre en primero");
                 Vehiculo_PropietarioDAO vpdao = new Vehiculo_PropietarioDAO();
                 Vehiculo_Propietario vp = vpdao.getVp();
                 vp.setK_cedula(Integer.valueOf(cedula));
                 vp.setK_placa(placa);
                 vpdao.buscarVehiculo_Propietario();
-                if (vp.getK_placa() != null) {
-                    out.println("no implementado");
+                
+                if (vp.getK_placa() != null && vp.getK_cedula() != -1) {
+                    //out.println("aca estoy intentando en 1");
+                    Intermediario intr = new Intermediario();
+                    intr.Operar(placa, cedula, anio);
+                    response.sendRedirect("prueba.jsp?placa=" + placa + "&cedula=" + cedula + "&anio=" + anio + "&valor=" + intr.getValorImpuesto()
+                            + "&basegravable=" + intr.getBaseGravable() + "&tarifa=" + intr.getTarifa() + "&semaforizacion=" + intr.getSemaforizacion() + "&descuento=" + intr.getDescuento()
+                            + "&valortd=" + intr.getValorTotalDes() + "&valortnd=" + intr.getValorTotalNDes());
                 } else {
-                    response.sendRedirect("Registrar.jsp?cedula="+cedula);
+                    //out.println("aqui intentando en 2");
+                    response.sendRedirect("Registrar.jsp?cedula=" + cedula);
                 }
             }else if("Consultar Pagos".equals(request.getParameter("consultaPago"))){
                 
