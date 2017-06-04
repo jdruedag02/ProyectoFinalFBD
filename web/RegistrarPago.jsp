@@ -4,6 +4,12 @@
     Author     : DANNY
 --%>
 
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
+<%@page import="Modelo.Pago"%>
+<%@page import="Control.PagoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +18,9 @@
         <title>Registrar pago</title>
     </head>
     <body>
+        <%
+            PagoDAO pdao = new PagoDAO();
+        %>
         <h1>Registro pago</h1>
         <form>
             <table>
@@ -21,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>Fecha de pago:</td>
-                    <td><input type="text" name="fPago" id="fechaPago"></td>
+                    <td><input type="date" name="fPago" id="fechaPago"></td>
                 </tr>
                 <tr>
                     <td>Valor pagado:</td>
@@ -42,5 +51,35 @@
                 <tr>
                     <td rowspaw="2">
                         <input type="submit" value="RegistrarPago">
-    </body>
-</html>
+                        <%if (!request.getParameterMap().isEmpty()) {
+
+                                try {
+
+                                    Pago p = pdao.getP();
+
+                                    int NumeroPago = Integer.valueOf(request.getParameter("idPago"));
+                                    long ValorPagado = Long.parseLong(request.getParameter("tipoId"));
+                                    String Banco = request.getParameter("banco");
+                                    String FormaPago = request.getParameter("formaPago");
+                                    int NumLiquidacion = Integer.valueOf(request.getParameter("numeroLiquidacion"));
+                                    
+                                    p.setK_refPago(NumeroPago);
+                                    p.setF_pago(Date.valueOf(request.getParameter("fechaPago")));
+                                    p.setV_vlrPagado(ValorPagado);
+                                    p.setN_banco(Banco);
+                                    p.setN_forPago(FormaPago);
+                                    p.setK_idLiquidacion(NumLiquidacion);
+                                    
+                                    pdao.incluirPago();
+                                    out.println("inclui propietario");
+                                    
+                                    out.println("LO HICIMOS!");
+                                } catch (NumberFormatException e) {
+                                    out.println("Error --> " + e.getMessage());
+                                } catch (Exception e1) {
+                                    out.println("Error --> " + e1 + e1.getMessage());
+                                }
+
+                            }%>
+                        </body>
+                        </html>
