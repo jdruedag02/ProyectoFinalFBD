@@ -30,6 +30,7 @@ body{
 }
 #footer-container{
 	background-color: rgb(0,157,230);
+	margin-top: 1em;
 }
 .seccion-footer{
 	margin: 1em 0 .5em 0;
@@ -40,30 +41,32 @@ body{
 	margin: 1em 0;
 	padding: 0 0 .8em 0;
 }
-.fila-vehiculo{
+.container-vehiculo{
 	background-color: white;
 	border-radius: .5em;
-	margin: 1em 0;
-	padding: 0 0 .8em 0;
+	/*margin: 1em 0;
+	padding: 0 0 .8em 0;*/
 }
-.fila-contribuyente{
+.container-contribuyente{
 	background-color: white;
 	border-radius: .5em;
-	margin: 1em 0;
-	padding: 0 0 .8em 0;	
+	margin-top: 1em;
+	/*margin: 1em 0;*/
+	/*padding: 0 0 .8em 0;*/	
 }
-.fila-liquidacion{
+.container-liquidacion{
 	background-color: white;
 	border-radius: .5em;
-	margin: 1em 0;
-	padding: 0 0 .8em 0;
+	margin-top: 1em;
+/*	margin: 1em 0;
+	padding: 0 0 .8em 0;*/
 }
 .header-fila{
 	margin-bottom: 1em;
 }
-/*form{
-	border: 1px solid red;
-}*/
-/*.entradas{
-	margin-left: 2em;
-}*/
+.fila-form{
+	margin: 0;
+}
+.titulo-form{
+	margin: 1em 0;
+}

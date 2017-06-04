@@ -3,7 +3,7 @@
 <%
     String Placa = request.getParameter("placa");
     String Cedula = request.getParameter("cedula");
-    String Año = request.getParameter("anio");
+    String Anio = request.getParameter("anio");
 %>
 
 <html lang="es">
@@ -51,7 +51,7 @@
           </div>
           <div class="col-xs-12 col-md-3">
             <div class="input-group row">
-              <input id="aSño" type="text" class ="form-control" placeholder="<%=Año%>" readonly>
+              <input id="aSño" type="text" class ="form-control" placeholder="<%=Anio%>" readonly>
             </div>           
           </div>
         </div>

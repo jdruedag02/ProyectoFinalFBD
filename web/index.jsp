@@ -28,7 +28,7 @@
                     <div class="col-xs-4 col-md-3 col-lg-2 columna">
                         <img class="img-fluid " src="img/imgAlcaldia.png">
                     </div>
-                    <div class="col-xs-8 col-md 7 col-lg-8 columna">
+                    <div class="col-xs-8 col-md-7 col-lg-8 columna">
                         <h1>Secretaría Distrital de Hacienda</h1>
                     </div>
                     <div class="col-xs-2 columna hidden-sm-down">
@@ -44,7 +44,7 @@
                 <div class="row flex-items-xs-center text-xs-center">
                     <div class="col-xs-10 col-md-9 columna columna-info">
                         <h3>Impuestos de vehículos</h3>
-                        <form action="LiquidarServlet" method="post">
+                        <form action="VerificarRegistro" method="post">
                             <div class="input-group row">
                                 <input name="placa" id="placa" type="text" class ="form-control" placeholder="Ingresa el numero de la placa" required>
                             </div>
@@ -52,10 +52,7 @@
                                 <input name="cedula" id="cedula" type="text" class="form-control" placeholder="Ingresa el numero de la cedula" required> 
                             </div>
                             <div class="input-group row">
-                                <input type="text" class="form-control" placeholder="Confirme el numero de la cedula"> 
-                            </div>
-                            <div class="input-group row">
-                                <select class="form-control">
+                                <select class="form-control" id="tipoDoc" name="tipoDoc">
                                     <option selected>Tipo de documento</option>
                                     <option value="cc">CC - Cedula de ciudadania</option>
                                     <option value="nit">NIT</option>
@@ -73,33 +70,32 @@
                                     <option value="2015">2015</option>
                                 </select>
                             </div>
-                            <input type="submit" value="Generar liquidacion">
+<!--                        <input type="submit" value="Generar liquidacion">
                             <a href="Registrar.jsp"> registrar</a>
                             <input type="submit" value="RegistrarPago">
-                            <a href="RegistrarPago.jsp"> Registrar pago</a>
-                        </form>
-                        <!--<div class="row flex-items-xs-center">
-                            <div class="col-xs-12 col-md-3 columna">
-                                <div class="btn-grupo">
-                                    <a class="btn btn-primary" type="submit" role="button" href="../src/java/util/Liquidacion.java">Generar liquidacion</a>
+                            <a href="RegistrarPago.jsp"> Registrar pago</a>-->
+                            <div class="row flex-items-xs-center">
+                                <div class="col-xs-12 col-md-3 columna">
+                                    <div class="btn-grupo">
+                                        <input name="liquidar" class="btn btn-primary" type="submit" role="button" value="Generar Liquidacion">
+                                    </div>
                                 </div>
-                            </div>-->
-                        <div class="col-xs-12 col-md-3 columna">
-                            <div class="btn-grupo">
-                                <a href="consulta.jsp">Consultar pagos</a> 
+                                <div class="col-xs-12 col-md-3 columna">
+                                    <div class="btn-grupo">
+                                        <input name="consultaPago" class="btn btn-primary" type="submit" role="button" value="Consultar Pagos">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-3 columna">
+                                    <div class="btn-grupo">
+                                        <input name="registraPago" class="btn btn-primary" type="submit" role="button" value="Registrar Pago">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-md-3 columna">
-                            <div class="btn-grupo">
-                                <button class="btn btn-primary">Pagar</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>  
+                        </form>
+                    </div>  
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- footer -->
         <footer id="footer-container">

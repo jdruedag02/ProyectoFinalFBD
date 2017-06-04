@@ -8,6 +8,10 @@
         <servlet-name>cargarListas</servlet-name>
         <servlet-class>servlets.cargarListas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerificarRegistro</servlet-name>
+        <servlet-class>servlets.VerificarRegistro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LiquidarServlet</servlet-name>
         <url-pattern>/LiquidarServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>cargarListas</servlet-name>
         <url-pattern>/cargarListas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarRegistro</servlet-name>
+        <url-pattern>/VerificarRegistro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

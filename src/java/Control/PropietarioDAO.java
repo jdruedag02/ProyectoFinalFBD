@@ -71,7 +71,7 @@ public class PropietarioDAO {
         }
     }
     
-    public static Propietario getPr() {
+    public Propietario getPr() {
         return pr;
     }
 
