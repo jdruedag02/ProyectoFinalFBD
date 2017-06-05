@@ -21,10 +21,21 @@ public class Parametros {
     Date f_descto;
     Date f_limite;
     short v_descuento;
-
+    short t_voluntario;
+    
     public Parametros() {
         
     }
+
+    public short getT_voluntario() {
+        return t_voluntario;
+    }
+
+    public void setT_voluntario(short t_voluntario) {
+        this.t_voluntario = t_voluntario;
+    }
+    
+    
 
     public BigDecimal getK_añoImpuesto() {
         return k_añoImpuesto;

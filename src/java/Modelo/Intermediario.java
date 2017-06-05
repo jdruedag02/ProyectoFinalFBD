@@ -26,7 +26,8 @@ public class Intermediario {
     private String Semaforizacion;
     private String Descuento;
     private String ValorTotalDes;
-    private String ValorTotalNDes;   
+    private String ValorTotalNDes; 
+    private String valorVolunt;
     
     
     public void Operar(String Placa, String Cedula, String Anio) throws CaException {
@@ -79,20 +80,34 @@ public class Intermediario {
         long baseGravable = c.getV_valorBG();
         float tarifa = r.getV_tarifa();
         int semaforizacion = p.getV_semaforizacion();
-        //short descuento = p.getV_descuento();            
+        short tDescuento = p.getV_descuento();
+        short tVolunt = p.getT_voluntario();
         double ValorNumImpuesto = l.valorDeLiquidacion(baseGravable, tarifa);
-        double descuento = l.valorDescuYPagoV(ValorNumImpuesto);
+        double descuento = l.valorDescu(ValorNumImpuesto,tDescuento);
+        double voluntario = l.valorVolunt(ValorNumImpuesto, tVolunt);
         double ValorTotalDescuento = l.valorTotalDescuento(semaforizacion, ValorNumImpuesto);
         double ValorTotalNDescuento = l.ValorTotalNDescuento(semaforizacion, ValorNumImpuesto);
-
+        
+                
          ValorImpuesto = Double.toString(ValorNumImpuesto);
          BaseGravable = Long.toString(baseGravable);
          Tarifa = Float.toString(tarifa);
          Semaforizacion = Integer.toString(semaforizacion);
          Descuento = Double.toString(descuento);
+         valorVolunt = Double.toString(voluntario);
          ValorTotalDes = Double.toString(ValorTotalDescuento);
          ValorTotalNDes = Double.toString(ValorTotalNDescuento);
     }
+
+    public String getValorVolunt() {
+        return valorVolunt;
+    }
+
+    public void setValorVolunt(String valorVolunt) {
+        this.valorVolunt = valorVolunt;
+    }
+    
+    
 
     public Vehiculo getV() {
         return v;
