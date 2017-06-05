@@ -54,9 +54,9 @@ public class VerificarRegistro extends HttpServlet {
                     //out.println("aca estoy intentando en 1");
                     Intermediario intr = new Intermediario();
                     intr.Operar(placa, cedula, anio);
-                    response.sendRedirect("prueba.jsp?placa=" + placa + "&cedula=" + cedula + "&anio=" + anio + "&valor=" + intr.getValorImpuesto()
+                    response.sendRedirect("MostrarLiquidacion.jsp?placa=" + placa + "&cedula=" + cedula + "&anio=" + anio + "&valor=" + intr.getValorImpuesto()
                             + "&basegravable=" + intr.getBaseGravable() + "&tarifa=" + intr.getTarifa() + "&semaforizacion=" + intr.getSemaforizacion() + "&descuento=" + intr.getDescuento()
-                            + "&valortd=" + intr.getValorTotalDes() + "&valortnd=" + intr.getValorTotalNDes());
+                            + "&valortd=" + intr.getValorTotalDes() + "&valortnd=" + intr.getValorTotalNDes()+ "&valorVolunt=" + intr.getValorVolunt());
                 } else {
                     //out.println("aqui intentando en 2");
                     response.sendRedirect("Registrar.jsp?cedula=" + cedula);

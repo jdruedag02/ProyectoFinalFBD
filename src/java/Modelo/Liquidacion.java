@@ -125,9 +125,15 @@ public class Liquidacion {
         return valorImpuesto;
     }
     
-    public double valorDescuYPagoV(double ValorLiquidacion){
-        double ValorDescuentoYPagoV = (ValorLiquidacion*0.1);
+    public double valorDescu(double ValorLiquidacion, double tDescuento){
+        double ValorDescuentoYPagoV = (tDescuento*ValorLiquidacion)/100;
         return ValorDescuentoYPagoV;
+    }
+    
+    public double valorVolunt(double ValorLiquidacionN, short tVoluntario){
+        double volutario = (tVoluntario*ValorLiquidacionN)/100;
+        System.out.println(volutario);
+        return volutario ;
     }
     
     public double valorTotalDescuento(int semaforizacion, double valorLiquidacion){

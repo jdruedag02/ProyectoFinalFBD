@@ -15,6 +15,7 @@
     String Descuento = request.getParameter("descuento");
     String ValorTotalDes = request.getParameter("valortd");
     String ValorTotalNDes = request.getParameter("valortnd");
+    String ValorVolunt = request.getParameter("valorVolunt");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,6 +32,7 @@
         <h1>Tarifa: <%=Tarifa%></h1>
         <h1>Semaforizacion: <%=Semaforizacion%></h1>
         <h1>Descuento: <%=Descuento%></h1>
+        <h1>Voluntario: <%=ValorVolunt%></h1>
         <h1>Valor Impuesto: <%=ValorImpuesto%></h1>
         <h1>Valor Total</h1>
         <h1>Con Descuento: <%=ValorTotalDes%></h1>

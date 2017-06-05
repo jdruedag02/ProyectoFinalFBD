@@ -200,7 +200,8 @@
                         </div> -->
                     </div>
                     <div class="form-group row fila-form flex-items-xs-center">
-                      <input class="btn btn-primary" type="submit" value="continuar">
+                      <input class="btn btn-primary" type="submit" value="Registrar">
+                      <div class="btn btn-primary" style="margin-left: 1em"><a href="index.jsp" style="color:white;">Volver</a></div>
                     </div>
                 </form>
             </div>
