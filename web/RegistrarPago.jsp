@@ -61,7 +61,7 @@
                     Pago p = pdao.getP();
 
                     int NumeroPago = Integer.valueOf(request.getParameter("idPago"));
-                    long ValorPagado = Long.valueOf(request.getParameter("vPagado"));
+                    long ValorPagado = Long.valueOf(request.getParameter("valorPagado"));
                     String Banco = request.getParameter("banco");
                     String FormaPago = request.getParameter("formaPago");
                     int NumLiquidacion = Integer.valueOf(request.getParameter("numeroLiquidacion"));
