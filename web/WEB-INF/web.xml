@@ -12,6 +12,18 @@
         <servlet-name>VerificarRegistro</servlet-name>
         <servlet-class>servlets.VerificarRegistro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GenerarPDF</servlet-name>
+        <servlet-class>servlets.GenerarPDF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaPagos</servlet-name>
+        <servlet-class>servlets.ConsultaPagos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarPago</servlet-name>
+        <servlet-class>servlets.RegistrarPago</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LiquidarServlet</servlet-name>
         <url-pattern>/LiquidarServlet</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>VerificarRegistro</servlet-name>
         <url-pattern>/VerificarRegistro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenerarPDF</servlet-name>
+        <url-pattern>/GenerarPDF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaPagos</servlet-name>
+        <url-pattern>/ConsultaPagos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarPago</servlet-name>
+        <url-pattern>/RegistrarPago</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -92,7 +92,7 @@ public class RangoDAO {
         }catch(SQLException e){
             throw new CaException("RangoDAO", "no se pudo realizar busqueda publico");
         }finally{
-            ServiceLocator.getInstance().close();;
+            ServiceLocator.getInstance().liberarConexion();
         }
     }
     

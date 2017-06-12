@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import Control.CilindrajeDAO;
@@ -12,9 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import util.CaException;
 
-
 public class Intermediario {
-    
+
     private Vehiculo v;
     private Liquidacion l;
     private Cilindraje c;
@@ -26,10 +24,10 @@ public class Intermediario {
     private String Semaforizacion;
     private String Descuento;
     private String ValorTotalDes;
-    private String ValorTotalNDes; 
+    private String ValorTotalNDes;
     private String valorVolunt;
-    
-    
+    private String idLiquidacion;
+
     public void Operar(String Placa, String Cedula, String Anio) throws CaException {
 
         // Vehiculo al que se le calculara el impuesto
@@ -56,12 +54,15 @@ public class Intermediario {
             rdao.buscarRangoPublico();
         }
 
+        System.out.println(r.getV_tarifa());
+
         //parametros del año fiscal que se esta realizando el calculo del impuesto
         ParametrosDAO pdao = new ParametrosDAO();
         p = pdao.getP();
         p.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
         pdao.buscarParametros();
-
+        System.out.println(p.getV_semaforizacion());
+        
         //Armar la liquidacion completa
         LiquidacionDAO ldao = new LiquidacionDAO();
         l = ldao.getLi();
@@ -82,21 +83,31 @@ public class Intermediario {
         int semaforizacion = p.getV_semaforizacion();
         short tDescuento = p.getV_descuento();
         short tVolunt = p.getT_voluntario();
-        double ValorNumImpuesto = l.valorDeLiquidacion(baseGravable, tarifa);
-        double descuento = l.valorDescu(ValorNumImpuesto,tDescuento);
-        double voluntario = l.valorVolunt(ValorNumImpuesto, tVolunt);
-        double ValorTotalDescuento = l.valorTotalDescuento(semaforizacion, ValorNumImpuesto);
-        double ValorTotalNDescuento = l.ValorTotalNDescuento(semaforizacion, ValorNumImpuesto);
+        double ValorNumImpuesto = Math.floor(l.valorDeLiquidacion(baseGravable, tarifa));
+        double descuento = Math.floor(l.valorDescu(ValorNumImpuesto, tDescuento));
+        double voluntario = Math.floor(l.valorVolunt(ValorNumImpuesto, tVolunt));
+        double ValorTotalDescuento = Math.floor(l.valorTotalDescuento(semaforizacion, ValorNumImpuesto));
+        double ValorTotalNDescuento = Math.floor(l.ValorTotalNDescuento(semaforizacion, ValorNumImpuesto));
         
-                
-         ValorImpuesto = Double.toString(ValorNumImpuesto);
-         BaseGravable = Long.toString(baseGravable);
-         Tarifa = Float.toString(tarifa);
-         Semaforizacion = Integer.toString(semaforizacion);
-         Descuento = Double.toString(descuento);
-         valorVolunt = Double.toString(voluntario);
-         ValorTotalDes = Double.toString(ValorTotalDescuento);
-         ValorTotalNDes = Double.toString(ValorTotalNDescuento);
+        System.out.println();
+
+        ValorImpuesto = Long.toString((long) ValorNumImpuesto);
+        BaseGravable = Long.toString(baseGravable);
+        Tarifa = Float.toString(tarifa);
+        Semaforizacion = Integer.toString(semaforizacion);
+        Descuento = Long.toString((long) descuento);
+        valorVolunt = Long.toString((long) voluntario);
+        ValorTotalDes = Long.toString((long) ValorTotalDescuento);
+        ValorTotalNDes = Long.toString((long) ValorTotalNDescuento);
+        idLiquidacion = idliquidacion.format(date);
+    }
+
+    public String getIdLiquidacion() {
+        return idLiquidacion;
+    }
+
+    public void setIdLiquidacion(String idLiquidacion) {
+        this.idLiquidacion = idLiquidacion;
     }
 
     public String getValorVolunt() {
@@ -106,8 +117,6 @@ public class Intermediario {
     public void setValorVolunt(String valorVolunt) {
         this.valorVolunt = valorVolunt;
     }
-    
-    
 
     public Vehiculo getV() {
         return v;
@@ -204,6 +213,5 @@ public class Intermediario {
     public void setValorTotalNDes(String ValorTotalNDes) {
         this.ValorTotalNDes = ValorTotalNDes;
     }
-    
-    
+
 }

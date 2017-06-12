@@ -13,6 +13,7 @@ import Modelo.Linea;
 import util.CaException;
 import util.ServiceLocator;
 import Modelo.Pago;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +31,7 @@ public class PagoDAO {
     public void incluirPago() throws CaException {
       try {
       
-        String strSQL = "INSERT INTO pago (k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_idLiquidacion) VALUES(?,?,?,?,?,?)";
+        String strSQL = "INSERT INTO pago (k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion) VALUES(?,?,?,?,?,?)";
         Connection conexion = ServiceLocator.getInstance().tomarConexion();
         PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
         prepStmt.setInt(1,p.getK_refPago()); 
@@ -51,7 +52,7 @@ public class PagoDAO {
     
     public void buscarPago() throws CaException{
         try{
-            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_idLiquidacion FROM pago where k_refpago = ?";
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion FROM pago where k_refpago = ?";
             Connection conexion = ServiceLocator.getInstance().tomarConexion();
             PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
             prepStmt.setInt(1, p.getK_refPago());
@@ -64,6 +65,67 @@ public class PagoDAO {
                 p.setN_forPago(rs.getString(5));
                 p.setK_idLiquidacion(rs.getInt(6));
             }
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public ResultSet buscarPagoCedula(int cedula) throws CaException{
+        try{
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion FROM pago, liquidacion WHERE k_liquidacion = k_idliquidacion and k_cedula = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setInt(1, cedula);
+            ResultSet rs = prepStmt.executeQuery();
+            return rs;
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public ResultSet buscarPagoPlaca(String placa) throws CaException{
+        try{
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion FROM pago, liquidacion WHERE k_liquidacion = k_idliquidacion and k_placa = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setString(1, placa);
+            ResultSet rs = prepStmt.executeQuery();
+            return rs;
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public ResultSet buscarPagoAnio(String anio) throws CaException{
+        try{
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion FROM pago, liquidacion WHERE k_liquidacion = k_idliquidacion and k_añoimpuesto = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setBigDecimal(1, BigDecimal.valueOf(Integer.valueOf(anio)));
+            ResultSet rs = prepStmt.executeQuery();
+            return rs;
+        }catch(SQLException e){
+            throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
+        }finally{
+            ServiceLocator.getInstance().liberarConexion();
+        }
+    }
+    
+    public ResultSet buscarPagoPlacaCedula(String placa, int cedula) throws CaException{
+        try{
+            String strSQL = "SELECT k_refpago, f_pago, v_valorpago, n_banco, n_formapago, k_liquidacion FROM pago, liquidacion WHERE k_liquidacion = k_idliquidacion and k_cedula = ? and k_placa = ?";
+            Connection conexion = ServiceLocator.getInstance().tomarConexion();
+            PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
+            prepStmt.setInt(1, cedula);
+            prepStmt.setString(2, placa);
+            ResultSet rs = prepStmt.executeQuery();
+            return rs;
         }catch(SQLException e){
             throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
         }finally{
@@ -94,7 +156,6 @@ public class PagoDAO {
             throw new CaException("PagoDAO", "no se pudo realizar la busqueda");
         }  
          return pagos;
-
     }
     public Pago getP() {
         return p;

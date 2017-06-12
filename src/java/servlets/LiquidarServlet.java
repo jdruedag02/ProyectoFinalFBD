@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Modelo.*;
+import static java.lang.System.out;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -37,82 +38,61 @@ public class LiquidarServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, CaException {
-            response.setContentType("text/html;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-//            String Placa = request.getParameter("placa");
-//            String Cedula = request.getParameter("cedula");
-//            String Anio = request.getParameter("anio");
-//            
-//            Vehiculo v;
-//            Liquidacion l ;
-//            Cilindraje c;
-//            Rango r;
-//            Parametros p;
-//            
-//            // Vehiculo al que se le calculara el impuesto
-//            VehiculoDAO vdao = new VehiculoDAO();
-//            v = vdao.getV();
-//            v.setK_placa(Placa);
-//            vdao.buscarVehiculo();
-//            
-//            // Cilindraje del vehiculo al que se le calculara el impuesto (obetener base gravable)
-//            CilindrajeDAO cdao = new CilindrajeDAO();
-//            c = cdao.getC();
-//            cdao.BuscarBaseGravable(v.getK_idCilindraje(), v.getK_idL(), v.getK_modelo());
-//            
-//            //Rango de tarifa al que el vehiculo aplica segun caracteristicas
-//            RangoDAO rdao = new RangoDAO();
-//            r = rdao.getR();
-//            if(v.getN_uso().equals("particular")){
-//                rdao.buscarRangoParticular(c.getV_valorBG());
-//            }else if(v.getN_tipo().equals("motocicleta")){
-//                rdao.buscarRangoMoto();
-//            }else if(v.getN_uso().equals("publico")){
-//                rdao.buscarRangoPublico();
-//            }
-//            
-//            //parametros del año fiscal que se esta realizando el calculo del impuesto
-//            ParametrosDAO pdao = new ParametrosDAO();
-//            p = pdao.getP();
-//            p.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
-//            pdao.buscarParametros();
-//            
-//            //Armar la liquidacion completa
-//            LiquidacionDAO ldao = new LiquidacionDAO();
-//            l = ldao.getLi();
-//            l.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
-//            l.setK_cedula(Integer.valueOf(Cedula));
-//            Date date = new Date();
-//            DateFormat idliquidacion = new SimpleDateFormat("yyyyMMHHss");
-//            DateFormat añoliquidacion = new SimpleDateFormat("yyyy");
-//            l.setK_idLiquidacion(Integer.valueOf(idliquidacion.format(date)));
-//            l.setK_placa(Placa);
-//            l.setN_añoLiquidacion(BigDecimal.valueOf(Integer.valueOf(añoliquidacion.format(date))));
-//            l.setV_baseGravable(c.getV_valorBG());
-//            l.setV_semaforizaion(p.getV_semaforizacion());
-//            
-//            //variables con los valores necesarios para realizar el calculo del impuesto
-//            long baseGravable = c.getV_valorBG();
-//            float tarifa = r.getV_tarifa();
-//            int semaforizacion = p.getV_semaforizacion();
-//            //short descuento = p.getV_descuento();            
-//            double ValorNumImpuesto = l.valorDeLiquidacion(baseGravable, tarifa);
-//            double descuento = l.valorDescuYPagoV(ValorNumImpuesto);
-//            double ValorTotalDescuento = l.valorTotalDescuento(semaforizacion, ValorNumImpuesto);
-//            double ValorTotalNDescuento = l.ValorTotalNDescuento(semaforizacion, ValorNumImpuesto);
-//            
-//            String ValorImpuesto = Double.toString(ValorNumImpuesto);
-//            String BaseGravable = Long.toString(baseGravable);
-//            String Tarifa = Float.toString(tarifa);
-//            String Semaforizacion = Integer.toString(semaforizacion);
-//            String Descuento = Double.toString(descuento);
-//            String ValorTotalDes = Double.toString(ValorTotalDescuento);
-//            String ValorTotalNDes = Double.toString(ValorTotalNDescuento);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
             
-//            response.sendRedirect("prueba.jsp?placa="+Placa+"&cedula="+Cedula+"&anio="+Anio+"&valor="+ValorImpuesto+
-//                    "&basegravable="+BaseGravable+"&tarifa="+Tarifa+"&semaforizacion="+Semaforizacion+"&descuento="+Descuento+
-//                    "&valortd="+ValorTotalDes+"&valortnd="+ValorTotalNDes);
+
+            String Placa = request.getParameter("placa");
+            String Cedula = request.getParameter("cedula");
+            String Anio = request.getParameter("anio");
+            String ValorImpuesto = request.getParameter("impuesto");
+            String Semaforizacion = request.getParameter("semaforizacion");
+            String BaseGravable = request.getParameter("avaluo");
+            String Descuento = request.getParameter("descuento");
+            String ValorVolunt = request.getParameter("volunt");
+            String idLiquidacion = request.getParameter("idLiquidacion");
+            String tarifa = request.getParameter("tarifa");
+            String valorTD = request.getParameter("totalDes");
+            String valorTND = request.getParameter("totalNDes");
+
+            LiquidacionDAO ldao = new LiquidacionDAO();
+            Liquidacion l = ldao.getLi();
+
+            l.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(Anio)));
+            l.setK_cedula(Integer.valueOf(Cedula));
+            l.setK_idLiquidacion(Integer.valueOf(idLiquidacion));
+            l.setK_placa(Placa);
+            Date date = new Date();
+            DateFormat añoliquidacion = new SimpleDateFormat("yyyy");
+            l.setN_añoLiquidacion(BigDecimal.valueOf(Integer.valueOf(añoliquidacion.format(date))));
+            l.setV_baseGravable(Long.valueOf(BaseGravable));
+
+            if ("S".equals(request.getParameter("pagoTiempo"))) {
+                l.setV_dstoPronto(Long.valueOf(Descuento));
+            } else {
+                l.setV_dstoPronto(0);
+            }
+
+            l.setV_impuesto(Long.valueOf(ValorImpuesto));
+
+            if ("S".equals(request.getParameter("aceptPagoVoluntario"))) {
+                l.setV_pagoVoluntario(Long.valueOf(ValorVolunt));
+            } else {
+                l.setV_pagoVoluntario(0);
+            }
+
+            l.setV_semaforizaion(Integer.valueOf(Semaforizacion));
+            long vTotal = (l.getV_impuesto() + l.getV_pagoVoluntario()+l.getV_semaforizacion()) - l.getV_dstoPronto();
+            l.setV_total(vTotal);
+
+            ldao.incluirLiquidacion();
+            
+            response.sendRedirect("MostrarLiquidacion.jsp?placa=" + Placa + "&cedula=" + Cedula + "&anio=" + Anio + "&valor=" + ValorImpuesto
+                            + "&basegravable=" + BaseGravable + "&tarifa=" + tarifa + "&semaforizacion=" + Semaforizacion + "&descuento=" + Descuento
+                            + "&valortd=" + valorTD + "&valortnd=" + valorTND + "&valorVolunt=" + ValorVolunt+"&idLiquidacion="+ idLiquidacion);
+
+        }catch(Exception e){
+            out.println(e.getMessage());
         }
     }
 

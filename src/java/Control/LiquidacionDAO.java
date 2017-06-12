@@ -58,10 +58,11 @@ public class LiquidacionDAO {
     
     public void buscarLiquidacion() throws CaException{
         try{
-            String strSQL = "SELECT k_idliquidacion, n_añoliquidacion, v_totalpago, v_pagovoluntario, v_descprontopago, v_semaforizacion, v_impuesto, v_basegravable, k_placa, k_cedula, k_añoimpuesto FROM liquidacion WHERE k_idliquidacion = ?";
+            String strSQL = "SELECT k_idliquidacion, n_añoliquidacion, v_totalpago, v_pagovoluntario, v_descprontopago, v_semaforizacion, v_impuesto, v_basegravable, k_placa, k_cedula, k_añoimpuesto FROM liquidacion WHERE k_placa = ? and k_cedula = ?";
             Connection conexion = ServiceLocator.getInstance().tomarConexion();
             PreparedStatement prepStmt = conexion.prepareStatement(strSQL);
-            prepStmt.setInt(1, li.getK_idLiquidacion());
+            prepStmt.setString(1, li.getK_placa());
+            prepStmt.setInt(2, li.getK_cedula());
             ResultSet rs = prepStmt.executeQuery();
             while(rs.next()){
                 li.setK_idLiquidacion(rs.getInt(1));

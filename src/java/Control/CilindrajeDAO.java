@@ -46,6 +46,8 @@ public class CilindrajeDAO {
             ServiceLocator.getInstance().liberarConexion();
         }
     }
+    
+    
         public void BuscarBaseGravable(String idCilindraje, String idLinea, BigDecimal modelo) throws CaException {
         try {
             String strSQL = "SELECT (v_basegravable*1000) FROM cilindraje WHERE k_idcilindraje = ? and k_linea = ? and k_modelo = ?";

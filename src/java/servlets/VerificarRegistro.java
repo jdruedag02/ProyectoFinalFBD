@@ -5,10 +5,12 @@
  */
 package servlets;
 
+import Control.LiquidacionDAO;
 import Control.Vehiculo_PropietarioDAO;
 import Modelo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -56,15 +58,23 @@ public class VerificarRegistro extends HttpServlet {
                     intr.Operar(placa, cedula, anio);
                     response.sendRedirect("MostrarLiquidacion.jsp?placa=" + placa + "&cedula=" + cedula + "&anio=" + anio + "&valor=" + intr.getValorImpuesto()
                             + "&basegravable=" + intr.getBaseGravable() + "&tarifa=" + intr.getTarifa() + "&semaforizacion=" + intr.getSemaforizacion() + "&descuento=" + intr.getDescuento()
-                            + "&valortd=" + intr.getValorTotalDes() + "&valortnd=" + intr.getValorTotalNDes()+ "&valorVolunt=" + intr.getValorVolunt());
+                            + "&valortd=" + intr.getValorTotalDes() + "&valortnd=" + intr.getValorTotalNDes()+ "&valorVolunt=" + intr.getValorVolunt()+"&idLiquidacion="+intr.getIdLiquidacion());
                 } else {
                     //out.println("aqui intentando en 2");
                     response.sendRedirect("Registrar.jsp?cedula=" + cedula);
                 }
             }else if("Consultar Pagos".equals(request.getParameter("consultaPago"))){
+                response.sendRedirect("ConsultaPagos.jsp?placa=" + placa + "&cedula=" + cedula + "&anio=" + anio + "&datosCarg=false");
                 
             }else if("Registrar Pago".equals(request.getParameter("registraPago"))){
+                LiquidacionDAO ldao = new LiquidacionDAO();
+                Liquidacion l = ldao.getLi();
+                l.setK_placa(placa);
+                l.setK_cedula(Integer.valueOf(cedula));
+                l.setK_añoImpuesto(BigDecimal.valueOf(Integer.valueOf(anio)));
+                ldao.buscarLiquidacion();
                 
+                response.sendRedirect("RegistrarPago.jsp?total="+l.getV_total()+"&numLiq="+l.getK_idLiquidacion());
             }
         }
     }

@@ -121,28 +121,41 @@ public class Liquidacion {
 
     public double valorDeLiquidacion(long base, float tarifa){
         double valorImpuesto = (base*tarifa)*0.01;
-        
-        return valorImpuesto;
+        double valorMedio = (valorImpuesto/1000.000);
+        double valorFinal = Math.round(valorMedio);
+        double ValorFinal = (valorFinal*1000);
+        return ValorFinal;
     }
     
     public double valorDescu(double ValorLiquidacion, double tDescuento){
         double ValorDescuentoYPagoV = (tDescuento*ValorLiquidacion)/100;
-        return ValorDescuentoYPagoV;
+         double valorMedio = (ValorDescuentoYPagoV/1000.000);
+        double valorFinal = Math.round(valorMedio);
+        double ValorFinal = (valorFinal*1000);
+        return ValorFinal;
     }
     
     public double valorVolunt(double ValorLiquidacionN, short tVoluntario){
-        double volutario = (tVoluntario*ValorLiquidacionN)/100;
-        System.out.println(volutario);
-        return volutario ;
+        double voluntario = (tVoluntario*ValorLiquidacionN)/100;
+        double valorMedio = (voluntario/1000.000);
+        double valorFinal = Math.round(valorMedio);
+        double ValorFinal = (valorFinal*1000);
+        return ValorFinal;
     }
     
     public double valorTotalDescuento(int semaforizacion, double valorLiquidacion){
         double valorTotal = (semaforizacion + valorLiquidacion)-(valorLiquidacion*0.1);
-        return valorTotal;
+        double valorMedio = (valorTotal/1000.000);
+        double valorFinal = Math.round(valorMedio);
+        double ValorFinal = (valorFinal*1000);
+        return ValorFinal;
     }
     
     public double ValorTotalNDescuento(int semaforizacion, double valorLiquidacion){
         double valorTotalS = (semaforizacion + valorLiquidacion);
-        return valorTotalS;
+        double valorMedio = (valorTotalS/1000.000);
+        double valorFinal = Math.round(valorMedio);
+        double ValorFinal = (valorFinal*1000);
+        return ValorFinal;
     }
 }
